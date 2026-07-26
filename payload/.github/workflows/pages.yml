@@ -1,0 +1,86 @@
+name: 学习 · 发布三维 Kakeya 研究网站
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "site/**"
+      - ".github/workflows/pages.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: github-pages
+  cancel-in-progress: true
+
+jobs:
+  build-pages:
+    name: 检查并上传网站产物
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 检出仓库
+        uses: actions/checkout@v4
+
+      - name: 检查网站结构
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          required_files=(
+            "site/index.html"
+            "site/viewer.html"
+            "site/preview.png"
+            "site/rotation.mp4"
+            "site/rotation.gif"
+            "site/metrics.json"
+          )
+
+          missing=0
+
+          for file in "${required_files[@]}"; do
+            if [[ -s "$file" ]]; then
+              echo "✓ $file"
+            else
+              echo "::error::缺少或为空：$file"
+              missing=1
+            fi
+          done
+
+          if [[ "$missing" -ne 0 ]]; then
+            exit 1
+          fi
+
+          touch site/.nojekyll
+          echo "网站结构检查通过。"
+
+      - name: 配置 GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: 上传 GitHub Pages 产物
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: site
+
+  deploy-pages:
+    name: 部署 GitHub Pages
+    needs: build-pages
+    runs-on: ubuntu-latest
+
+    permissions:
+      pages: write
+      id-token: write
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: 发布网站
+        id: deployment
+        uses: actions/deploy-pages@v4
