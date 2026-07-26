@@ -1,0 +1,224 @@
+name: 学习 · 自主研究、审查、修订与重渲染
+
+on:
+  workflow_dispatch:
+    inputs:
+      rounds:
+        description: 本轮候选修订次数
+        required: true
+        default: "2"
+        type: string
+      mode:
+        description: 三维模拟排列
+        required: true
+        default: mixed
+        type: choice
+        options: [mixed, uniform, sticky, nonsticky, hairbrush, grains]
+  schedule:
+    - cron: "23 */6 * * *"
+  push:
+    branches: [main]
+    paths:
+      - "paper/**"
+      - "config/**"
+      - "src/kakeya_sim/**"
+      - "src/xuexi_agent/**"
+      - "tests/**"
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: xuexi-autonomous-research
+  cancel-in-progress: false
+
+jobs:
+  research:
+    if: github.event_name != 'push' || !contains(github.event.head_commit.message, '[xuexi-cycle]')
+    runs-on: ubuntu-latest
+    timeout-minutes: 330
+
+    steps:
+      - name: 创建 Xuexi installation token
+        id: app-token
+        uses: actions/create-github-app-token@v3
+        with:
+          client-id: ${{ vars.XUEXI_CLIENT_ID || secrets.XUEXI_CLIENT_ID }}
+          private-key: ${{ secrets.XUEXI_PRIVATE_KEY }}
+          owner: galihru
+          repositories: KakeyaSetConjecture
+          permission-contents: write
+
+      - name: 检出研究仓库
+        uses: actions/checkout@v4
+        with:
+          token: ${{ steps.app-token.outputs.token }}
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: 设置 Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: 安装研究、模拟与视频依赖
+        shell: bash
+        run: |
+          set -euo pipefail
+          sudo apt-get update
+          sudo apt-get install -y build-essential cmake ninja-build libopenblas-dev ffmpeg fonts-noto-cjk
+          python -m pip install --upgrade pip
+          python -m pip install -e ".[dev,research]"
+          if ! python -m pip install llama-cpp-python \
+              --extra-index-url https://abetlen.github.io/llama-cpp-python/whl/cpu; then
+            CMAKE_ARGS="-DGGML_BLAS=ON -DGGML_BLAS_VENDOR=OpenBLAS" \
+            FORCE_CMAKE=1 \
+              python -m pip install llama-cpp-python
+          fi
+
+      - name: 缓存本地模型
+        uses: actions/cache@v4
+        with:
+          path: ${{ runner.temp }}/xuexi-model
+          key: qwen25-coder-3b-q4-k-m-v2
+
+      - name: 从 Hugging Face 下载模型
+        id: model
+        shell: bash
+        run: |
+          set -euo pipefail
+          MODEL_DIR="$RUNNER_TEMP/xuexi-model"
+          mkdir -p "$MODEL_DIR"
+          MODEL_PATH="$(find "$MODEL_DIR" -maxdepth 1 -type f -iname '*q4_k_m.gguf' | head -n 1 || true)"
+          if [[ -z "$MODEL_PATH" || ! -s "$MODEL_PATH" ]]; then
+            hf download Qwen/Qwen2.5-Coder-3B-Instruct-GGUF \
+              --include "*q4_k_m.gguf" \
+              --local-dir "$MODEL_DIR"
+            MODEL_PATH="$(find "$MODEL_DIR" -maxdepth 1 -type f -iname '*q4_k_m.gguf' | head -n 1)"
+          fi
+          test -s "$MODEL_PATH"
+          echo "path=$MODEL_PATH" >> "$GITHUB_OUTPUT"
+
+      - name: 运行有界自主研究循环
+        env:
+          MODEL_PATH: ${{ steps.model.outputs.path }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [[ "${{ github.event_name }}" == "workflow_dispatch" ]]; then
+            ROUNDS="${{ inputs.rounds }}"
+          else
+            ROUNDS="2"
+          fi
+          python -m xuexi_agent agent \
+            --root . \
+            --model "$MODEL_PATH" \
+            --paper paper/2502.17655v1.pdf \
+            --config config/agent.yaml \
+            --rounds "$ROUNDS"
+
+      - name: 运行完整测试
+        run: python -m pytest -q
+
+      - name: 解析本轮模拟参数
+        id: simulation
+        shell: bash
+        run: |
+          set -euo pipefail
+          SEED="$(python - <<'PY'
+          import secrets
+          print(secrets.randbits(63))
+          PY
+          )"
+          if [[ "${{ github.event_name }}" == "workflow_dispatch" ]]; then
+            MODE="${{ inputs.mode }}"
+          else
+            MODES=(mixed uniform sticky nonsticky hairbrush grains)
+            MODE="${MODES[$(( SEED % ${#MODES[@]} ))]}"
+          fi
+          echo "seed=$SEED" >> "$GITHUB_OUTPUT"
+          echo "mode=$MODE" >> "$GITHUB_OUTPUT"
+
+      - name: 重新计算并渲染三维结果
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm -rf artifacts/latest site
+          python -m kakeya_sim \
+            --mode "${{ steps.simulation.outputs.mode }}" \
+            --seed "${{ steps.simulation.outputs.seed }}" \
+            --tubes 48 \
+            --delta 0.055 \
+            --rho 0.24 \
+            --resolution 40 \
+            --frames 60 \
+            --fps 15 \
+            --output artifacts/latest \
+            --site-output site
+
+      - name: 获取机器人提交身份
+        id: bot
+        env:
+          GH_TOKEN: ${{ steps.app-token.outputs.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          BOT_LOGIN="${{ steps.app-token.outputs.app-slug }}[bot]"
+          BOT_ID="$(gh api "/users/${BOT_LOGIN}" --jq '.id')"
+          echo "login=${BOT_LOGIN}" >> "$GITHUB_OUTPUT"
+          echo "id=${BOT_ID}" >> "$GITHUB_OUTPUT"
+
+      - name: 以 Xuexi 身份提交接受的修改和渲染
+        env:
+          GH_TOKEN: ${{ steps.app-token.outputs.token }}
+          BOT_LOGIN: ${{ steps.bot.outputs.login }}
+          BOT_ID: ${{ steps.bot.outputs.id }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          gh auth setup-git
+          git config user.name "$BOT_LOGIN"
+          git config user.email "${BOT_ID}+${BOT_LOGIN}@users.noreply.github.com"
+          git add --all
+          if git diff --cached --quiet; then
+            echo "本轮没有可提交变化。"
+            exit 0
+          fi
+          git commit -m "研究：自主审查、修订并重渲染 ${{ steps.simulation.outputs.seed }} [xuexi-cycle]"
+          git pull --rebase origin "${{ github.event.repository.default_branch }}"
+          git push origin "HEAD:${{ github.event.repository.default_branch }}"
+
+      - name: 上传本轮研究产物
+        uses: actions/upload-artifact@v4
+        with:
+          name: xuexi-cycle-${{ steps.simulation.outputs.seed }}
+          path: |
+            artifacts/latest
+            state/latest_cycle.json
+            state/latest_evaluation.json
+            knowledge/equations.json
+          retention-days: 14
+
+      - name: 准备 GitHub Pages 产物
+        if: vars.ENABLE_PAGES == 'true'
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+
+  deploy-pages:
+    if: vars.ENABLE_PAGES == 'true'
+    needs: research
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: 部署 GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
