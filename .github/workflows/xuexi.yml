@@ -1,56 +1,96 @@
-name: 学习 · Publish Kakeya Simulator
+name: 学习 · 重建并发布 Kakeya 研究代理
 
 on:
   workflow_dispatch:
+    inputs:
+      target_repository:
+        description: 目标仓库名称
+        required: true
+        default: KakeyaSetConjecture
+        type: string
+      reset_history:
+        description: 是否重建 main 历史（确保默认分支只保留机器人提交）
+        required: true
+        default: true
+        type: boolean
 
 permissions:
   contents: read
 
+concurrency:
+  group: xuexi-bootstrap-publish
+  cancel-in-progress: false
+
 jobs:
   publish:
+    name: 以 Xuexi GitHub App 身份发布
     runs-on: ubuntu-latest
+    timeout-minutes: 60
+
     steps:
-      - name: Checkout bootstrap repository
-        uses: actions/checkout@v6
+      - name: 检出 xuexi 引导仓库
+        uses: actions/checkout@v4
         with:
           persist-credentials: false
 
-      - name: Create Xuexi installation token
+      - name: 检查引导目录结构
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -f payload/pyproject.toml
+          test -f payload/paper/2502.17655v1.pdf
+          test -f payload/.github/workflows/agent-cycle.yml
+          test -f payload/src/xuexi_agent/agent.py
+          echo "引导内容检查通过。"
+
+      - name: 创建 Xuexi installation token
         id: app-token
         uses: actions/create-github-app-token@v3
         with:
           client-id: ${{ vars.XUEXI_CLIENT_ID || secrets.XUEXI_CLIENT_ID }}
           private-key: ${{ secrets.XUEXI_PRIVATE_KEY }}
           owner: galihru
-          repositories: KakeyaSetConjecture
+          repositories: ${{ inputs.target_repository }}
           permission-contents: write
           permission-workflows: write
 
-      - name: Confirm target repository is empty
+      - name: 验证 GitHub App 安装与仓库访问
         env:
           GH_TOKEN: ${{ steps.app-token.outputs.token }}
+          TARGET: ${{ inputs.target_repository }}
+        shell: bash
         run: |
           set -euo pipefail
-          HTTP_CODE="$(curl -sS -o /tmp/commits.json -w '%{http_code}' \
-            -H "Authorization: Bearer ${GH_TOKEN}" \
-            -H "Accept: application/vnd.github+json" \
-            https://api.github.com/repos/galihru/KakeyaSetConjecture/commits)"
-          if [[ "$HTTP_CODE" == "200" ]]; then
-            COUNT="$(jq 'length' /tmp/commits.json)"
-            if [[ "$COUNT" != "0" ]]; then
-              echo "::error::Target repository already contains commits."
-              exit 1
-            fi
-          elif [[ "$HTTP_CODE" != "409" ]]; then
-            cat /tmp/commits.json
-            echo "::error::Unexpected GitHub response: HTTP ${HTTP_CODE}"
-            exit 1
-          fi
+          gh repo view "galihru/${TARGET}" --json nameWithOwner,defaultBranchRef
+          gh api "/repos/galihru/${TARGET}/installation" --jq '.app_slug'
 
-      - name: Resolve Xuexi bot identity
+      - name: 安装并测试待发布项目
+        shell: bash
+        run: |
+          set -euo pipefail
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg fonts-noto-cjk
+          python -m pip install --upgrade pip
+          python -m pip install -e "./payload[dev,research]"
+          python -m pytest -q payload/tests
+          rm -rf payload/artifacts/latest payload/site
+          python -m kakeya_sim \
+            --mode mixed \
+            --seed 250217655 \
+            --tubes 24 \
+            --delta 0.06 \
+            --rho 0.25 \
+            --resolution 24 \
+            --frames 12 \
+            --fps 8 \
+            --output payload/artifacts/latest \
+            --site-output payload/site
+
+      - name: 获取机器人提交身份
         id: bot
         env:
           GH_TOKEN: ${{ steps.app-token.outputs.token }}
+        shell: bash
         run: |
           set -euo pipefail
           BOT_LOGIN="${{ steps.app-token.outputs.app-slug }}[bot]"
@@ -58,28 +98,49 @@ jobs:
           echo "login=${BOT_LOGIN}" >> "$GITHUB_OUTPUT"
           echo "id=${BOT_ID}" >> "$GITHUB_OUTPUT"
 
-      - name: Validate payload
-        run: |
-          python -m pip install -e payload[dev]
-          python -m pytest -q payload/tests
-          python -m kakeya_sim \
-            --mode mixed --seed 250217655 --tubes 32 \
-            --delta 0.065 --rho 0.25 --resolution 32 \
-            --output payload/artifacts/sample
-
-      - name: Commit and push complete project as Xuexi bot
+      - name: 同步并提交目标仓库
         env:
           GH_TOKEN: ${{ steps.app-token.outputs.token }}
+          TARGET: ${{ inputs.target_repository }}
+          RESET_HISTORY: ${{ inputs.reset_history }}
           BOT_LOGIN: ${{ steps.bot.outputs.login }}
           BOT_ID: ${{ steps.bot.outputs.id }}
+        shell: bash
         run: |
           set -euo pipefail
           gh auth setup-git
-          cd payload
-          git init --initial-branch=main
+
+          rm -rf target
+          mkdir target
+          cd target
+          git init
+          git remote add origin "https://github.com/galihru/${TARGET}.git"
           git config user.name "$BOT_LOGIN"
           git config user.email "${BOT_ID}+${BOT_LOGIN}@users.noreply.github.com"
+
+          if [[ "$RESET_HISTORY" == "true" ]]; then
+            git checkout --orphan xuexi-rebuild
+          elif git ls-remote --exit-code --heads origin main >/dev/null 2>&1; then
+            git fetch --depth=1 origin main
+            git checkout -B main origin/main
+          else
+            git checkout -b main
+          fi
+
+          rsync -a --delete --exclude='.git/' ../payload/ ./
+          rm -rf .pytest_cache '**/__pycache__' 2>/dev/null || true
           git add --all
-          git commit -m "feat: initialize Kakeya 3D simulator"
-          git remote add origin https://github.com/galihru/KakeyaSetConjecture.git
-          git push --set-upstream origin main
+
+          if git diff --cached --quiet; then
+            echo "目标仓库已经与新版本一致。"
+            exit 0
+          fi
+
+          git commit -m "重建：初始化学习自主研究代理 [xuexi-cycle]"
+
+          if [[ "$RESET_HISTORY" == "true" ]]; then
+            git branch -M main
+            git push --force origin main
+          else
+            git push origin main
+          fi
