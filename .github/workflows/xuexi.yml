@@ -170,10 +170,16 @@ jobs:
           sudo apt-get install -y ffmpeg fonts-noto-cjk
 
           python -m pip install --upgrade pip
-          python -m pip install -e "./${PAYLOAD_DIR}[dev,research]"
-          python -m pytest -q "${PAYLOAD_DIR}/tests"
 
-          rm -rf "${PAYLOAD_DIR}/artifacts/latest" "${PAYLOAD_DIR}/site"
+          # Semua perintah proyek dijalankan dari root payload. Ini penting
+          # karena test dan konfigurasi proyek menggunakan path relatif seperti
+          # README.md, src/, dan paper/2502.17655v1.pdf.
+          pushd "${PAYLOAD_DIR}" >/dev/null
+
+          python -m pip install -e ".[dev,research]"
+          python -m pytest -q
+
+          rm -rf artifacts/latest site
 
           python -m kakeya_sim \
             --mode mixed \
@@ -184,14 +190,16 @@ jobs:
             --resolution 24 \
             --frames 12 \
             --fps 8 \
-            --output "${PAYLOAD_DIR}/artifacts/latest" \
-            --site-output "${PAYLOAD_DIR}/site"
+            --output artifacts/latest \
+            --site-output site
 
-          test -s "${PAYLOAD_DIR}/artifacts/latest/preview.png"
-          test -s "${PAYLOAD_DIR}/artifacts/latest/rotation.mp4"
-          test -s "${PAYLOAD_DIR}/artifacts/latest/rotation.gif"
-          test -s "${PAYLOAD_DIR}/artifacts/latest/viewer.html"
-          test -s "${PAYLOAD_DIR}/site/index.html"
+          test -s artifacts/latest/preview.png
+          test -s artifacts/latest/rotation.mp4
+          test -s artifacts/latest/rotation.gif
+          test -s artifacts/latest/viewer.html
+          test -s site/index.html
+
+          popd >/dev/null
 
           echo "测试、模拟、三维渲染与网站生成均已通过。"
 
