@@ -25,23 +25,118 @@ jobs:
   publish:
     name: 以 Xuexi GitHub App 身份发布
     runs-on: ubuntu-latest
-    timeout-minutes: 60
+    timeout-minutes: 90
 
     steps:
       - name: 检出 xuexi 引导仓库
         uses: actions/checkout@v4
         with:
+          fetch-depth: 1
           persist-credentials: false
 
-      - name: 检查引导目录结构
+      - name: 查找并检查引导目录结构
+        id: layout
         shell: bash
         run: |
           set -euo pipefail
-          test -f payload/pyproject.toml
-          test -f payload/paper/2502.17655v1.pdf
-          test -f payload/.github/workflows/agent-cycle.yml
-          test -f payload/src/xuexi_agent/agent.py
+
+          echo "当前工作目录：$PWD"
+          echo "仓库根目录内容："
+          find . -maxdepth 4 -mindepth 1 \
+            -not -path './.git/*' \
+            -print | sort | sed -n '1,300p'
+
+          PAYLOAD_DIR=""
+
+          # 正确上传时的标准位置。
+          if [[ -f "payload/pyproject.toml" ]]; then
+            PAYLOAD_DIR="payload"
+          else
+            # 兼容把 ZIP 外层目录一并上传的情况，例如：
+            # xuexi-dynamic-ai-upload/payload/pyproject.toml
+            mapfile -t CANDIDATES < <(
+              find . -type f -path '*/payload/pyproject.toml' \
+                -not -path './.git/*' \
+                -printf '%h\n' | sort -u
+            )
+
+            if [[ ${#CANDIDATES[@]} -eq 1 ]]; then
+              PAYLOAD_DIR="${CANDIDATES[0]#./}"
+            elif [[ ${#CANDIDATES[@]} -eq 0 ]]; then
+              echo "::error::找不到 payload/pyproject.toml。请先解压 ZIP，再上传 .github、payload 和 PETUNJUK.md。"
+              exit 1
+            else
+              echo "::error::检测到多个 payload 目录，无法确定要发布哪一个："
+              printf ' - %s\n' "${CANDIDATES[@]}"
+              exit 1
+            fi
+          fi
+
+          echo "检测到的 payload 目录：${PAYLOAD_DIR}"
+
+          REQUIRED_FILES=(
+            "pyproject.toml"
+            "paper/2502.17655v1.pdf"
+            ".github/workflows/agent-cycle.yml"
+            ".github/workflows/ci.yml"
+            "src/xuexi_agent/agent.py"
+            "src/xuexi_agent/paper.py"
+            "src/xuexi_agent/safety.py"
+            "src/kakeya_sim/cli.py"
+          )
+
+          MISSING=0
+          for relative_path in "${REQUIRED_FILES[@]}"; do
+            full_path="${PAYLOAD_DIR}/${relative_path}"
+            if [[ -f "${full_path}" ]]; then
+              size="$(stat -c '%s' "${full_path}")"
+              echo "✓ ${full_path} (${size} bytes)"
+            else
+              echo "::error file=${full_path}::缺少必需文件：${full_path}"
+              MISSING=1
+            fi
+          done
+
+          if [[ ${MISSING} -ne 0 ]]; then
+            echo ""
+            echo "发现的 payload 文件："
+            find "${PAYLOAD_DIR}" -maxdepth 5 -type f -print | sort | sed -n '1,400p' || true
+            echo ""
+            echo "::error::引导目录不完整。不要上传 ZIP 文件本身；必须解压后上传完整的 payload 目录，包括隐藏的 payload/.github 目录。"
+            exit 1
+          fi
+
+          echo "payload_dir=${PAYLOAD_DIR}" >> "$GITHUB_OUTPUT"
           echo "引导内容检查通过。"
+
+      - name: 检查 Xuexi 凭据名称
+        shell: bash
+        env:
+          CLIENT_ID: ${{ vars.XUEXI_CLIENT_ID || secrets.XUEXI_CLIENT_ID }}
+          PRIVATE_KEY: ${{ secrets.XUEXI_PRIVATE_KEY }}
+        run: |
+          set -euo pipefail
+
+          if [[ -z "${CLIENT_ID}" ]]; then
+            echo "::error::缺少 XUEXI_CLIENT_ID。请在 Settings → Secrets and variables → Actions 中创建 Repository variable。"
+            exit 1
+          fi
+
+          if [[ -z "${PRIVATE_KEY}" ]]; then
+            echo "::error::缺少 XUEXI_PRIVATE_KEY。请创建 Repository secret，并粘贴完整 PEM 私钥。"
+            exit 1
+          fi
+
+          if [[ "${CLIENT_ID}" != Iv* ]]; then
+            echo "::warning::XUEXI_CLIENT_ID 通常以 Iv 开头。请确认没有把数字 App ID 填入 Client ID。"
+          fi
+
+          if ! grep -q -- 'BEGIN .*PRIVATE KEY' <<< "${PRIVATE_KEY}"; then
+            echo "::error::XUEXI_PRIVATE_KEY 看起来不是完整的 PEM 私钥。"
+            exit 1
+          fi
+
+          echo "凭据名称与基本格式检查通过。"
 
       - name: 创建 Xuexi installation token
         id: app-token
@@ -62,18 +157,24 @@ jobs:
         run: |
           set -euo pipefail
           gh repo view "galihru/${TARGET}" --json nameWithOwner,defaultBranchRef
-          gh api "/repos/galihru/${TARGET}/installation" --jq '.app_slug'
+          echo "GitHub App slug：${{ steps.app-token.outputs.app-slug }}"
 
       - name: 安装并测试待发布项目
+        env:
+          PAYLOAD_DIR: ${{ steps.layout.outputs.payload_dir }}
         shell: bash
         run: |
           set -euo pipefail
+
           sudo apt-get update
           sudo apt-get install -y ffmpeg fonts-noto-cjk
+
           python -m pip install --upgrade pip
-          python -m pip install -e "./payload[dev,research]"
-          python -m pytest -q payload/tests
-          rm -rf payload/artifacts/latest payload/site
+          python -m pip install -e "./${PAYLOAD_DIR}[dev,research]"
+          python -m pytest -q "${PAYLOAD_DIR}/tests"
+
+          rm -rf "${PAYLOAD_DIR}/artifacts/latest" "${PAYLOAD_DIR}/site"
+
           python -m kakeya_sim \
             --mode mixed \
             --seed 250217655 \
@@ -83,8 +184,16 @@ jobs:
             --resolution 24 \
             --frames 12 \
             --fps 8 \
-            --output payload/artifacts/latest \
-            --site-output payload/site
+            --output "${PAYLOAD_DIR}/artifacts/latest" \
+            --site-output "${PAYLOAD_DIR}/site"
+
+          test -s "${PAYLOAD_DIR}/artifacts/latest/preview.png"
+          test -s "${PAYLOAD_DIR}/artifacts/latest/rotation.mp4"
+          test -s "${PAYLOAD_DIR}/artifacts/latest/rotation.gif"
+          test -s "${PAYLOAD_DIR}/artifacts/latest/viewer.html"
+          test -s "${PAYLOAD_DIR}/site/index.html"
+
+          echo "测试、模拟、三维渲染与网站生成均已通过。"
 
       - name: 获取机器人提交身份
         id: bot
@@ -97,6 +206,7 @@ jobs:
           BOT_ID="$(gh api "/users/${BOT_LOGIN}" --jq '.id')"
           echo "login=${BOT_LOGIN}" >> "$GITHUB_OUTPUT"
           echo "id=${BOT_ID}" >> "$GITHUB_OUTPUT"
+          echo "提交身份：${BOT_LOGIN}"
 
       - name: 同步并提交目标仓库
         env:
@@ -105,6 +215,7 @@ jobs:
           RESET_HISTORY: ${{ inputs.reset_history }}
           BOT_LOGIN: ${{ steps.bot.outputs.login }}
           BOT_ID: ${{ steps.bot.outputs.id }}
+          PAYLOAD_DIR: ${{ steps.layout.outputs.payload_dir }}
         shell: bash
         run: |
           set -euo pipefail
@@ -113,6 +224,7 @@ jobs:
           rm -rf target
           mkdir target
           cd target
+
           git init
           git remote add origin "https://github.com/galihru/${TARGET}.git"
           git config user.name "$BOT_LOGIN"
@@ -127,8 +239,13 @@ jobs:
             git checkout -b main
           fi
 
-          rsync -a --delete --exclude='.git/' ../payload/ ./
-          rm -rf .pytest_cache '**/__pycache__' 2>/dev/null || true
+          rsync -a --delete \
+            --exclude='.git/' \
+            "$GITHUB_WORKSPACE/${PAYLOAD_DIR}/" ./
+
+          find . -type d -name '__pycache__' -prune -exec rm -rf {} + || true
+          rm -rf .pytest_cache
+
           git add --all
 
           if git diff --cached --quiet; then
