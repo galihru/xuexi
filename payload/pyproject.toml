@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "xuexi-kakeya-agent"
-version = "2.0.0"
+version = "2.3.0"
 description = "基于本地代码模型的三维 Kakeya 数值研究与自我审查代理。"
 readme = "README.md"
 requires-python = ">=3.11"
@@ -13,6 +13,7 @@ dependencies = [
   "plotly>=6.0",
   "matplotlib>=3.9",
   "pillow>=10.0",
+  "imageio-ffmpeg>=0.5.1",
   "PyYAML>=6.0",
   "PyMuPDF>=1.24",
 ]

@@ -2,12 +2,44 @@ from __future__ import annotations
 
 from pathlib import Path
 import math
+import shutil
 
 import matplotlib
 matplotlib.use("Agg")
+
+
+def _configure_runtime() -> None:
+    """Configure CJK fonts and an FFmpeg executable for every environment."""
+    preferred_fonts = [
+        "Noto Sans CJK SC",
+        "Noto Sans CJK JP",
+        "Noto Sans SC",
+        "Microsoft YaHei",
+        "SimHei",
+        "DejaVu Sans",
+    ]
+    matplotlib.rcParams["font.sans-serif"] = preferred_fonts
+    matplotlib.rcParams["axes.unicode_minus"] = False
+
+    if shutil.which("ffmpeg"):
+        return
+
+    try:
+        import imageio_ffmpeg
+    except ImportError as exc:  # pragma: no cover - dependency is declared
+        raise RuntimeError(
+            "FFmpeg is unavailable. Install the ffmpeg system package or imageio-ffmpeg."
+        ) from exc
+
+    executable = imageio_ffmpeg.get_ffmpeg_exe()
+    if not executable or not Path(executable).is_file():
+        raise RuntimeError("imageio-ffmpeg did not provide a valid FFmpeg executable.")
+    matplotlib.rcParams["animation.ffmpeg_path"] = executable
+
+
+_configure_runtime()
+
 import matplotlib.pyplot as plt
-plt.rcParams["font.sans-serif"] = ["Noto Sans CJK JP", "DejaVu Sans"]
-plt.rcParams["axes.unicode_minus"] = False
 from matplotlib.animation import FFMpegWriter, FuncAnimation, PillowWriter
 import numpy as np
 
@@ -29,14 +61,9 @@ def _draw_scene(ax: plt.Axes, tubes: list[Tube], voxel: VoxelResult, seed: int) 
     points, multiplicity = _sample_union_points(voxel, seed)
     if points.size:
         ax.scatter(
-            points[:, 0],
-            points[:, 1],
-            points[:, 2],
-            c=multiplicity,
-            cmap="viridis",
-            s=4,
-            alpha=0.22,
-            linewidths=0,
+            points[:, 0], points[:, 1], points[:, 2],
+            c=multiplicity, cmap="viridis", s=4,
+            alpha=0.22, linewidths=0,
         )
 
     groups = max(1, max(t.group for t in tubes) + 1)
@@ -48,12 +75,9 @@ def _draw_scene(ax: plt.Axes, tubes: list[Tube], voxel: VoxelResult, seed: int) 
             [tube.a[1], tube.b[1]],
             [tube.a[2], tube.b[2]],
             linewidth=max(1.0, 55.0 * tube.radius),
-            alpha=0.62,
-            color=color,
-            solid_capstyle="round",
+            alpha=0.62, color=color, solid_capstyle="round",
         )
 
-    # Unit-ball reference wireframe.
     u = np.linspace(0, 2 * math.pi, 28)
     v = np.linspace(0, math.pi, 14)
     x = np.outer(np.cos(u), np.sin(v))
