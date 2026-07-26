@@ -1,38 +1,76 @@
-name: 学习 · 确定性测试与快速渲染
+name: 学习 · 自动测试与快速渲染
 
 on:
-  workflow_dispatch:
-  pull_request:
   push:
     branches: [main]
     paths-ignore:
       - "artifacts/**"
       - "site/**"
       - "state/**"
+  pull_request:
+  schedule:
+    - cron: "11 3 * * *"
+  workflow_dispatch:
 
 permissions:
   contents: read
 
+concurrency:
+  group: xuexi-ci-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   test:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 45
+    env:
+      MPLCONFIGDIR: ${{ runner.temp }}/matplotlib
+
     steps:
       - uses: actions/checkout@v4
+
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
           cache: pip
-      - name: 安装依赖
-        run: python -m pip install -e ".[dev,research]"
+
+      - name: 安装 FFmpeg、中文字体与项目依赖
+        shell: bash
+        run: |
+          set -euo pipefail
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg fonts-noto-cjk fontconfig
+          fc-cache -f
+          command -v ffmpeg
+          ffmpeg -version | head -n 1
+          fc-match "Noto Sans CJK JP"
+          python -m pip install --upgrade pip
+          python -m pip install -e ".[dev,research]"
+
       - name: 重建论文公式索引
         run: python -m xuexi_agent index-paper --paper paper/2502.17655v1.pdf --output knowledge/equations.json
-      - name: 运行测试
+
+      - name: 运行完整测试
         run: python -m pytest -q
-      - name: 快速渲染
+
+      - name: 自动快速渲染
+        shell: bash
         run: |
-          python -m kakeya_sim \
-            --mode mixed --seed 250217655 --tubes 18 \
-            --delta 0.065 --rho 0.26 --resolution 20 \
-            --frames 8 --fps 8 \
-            --output .ci/artifacts --site-output .ci/site
+          set -euo pipefail
+          rm -rf .ci/artifacts .ci/site
+          python -m kakeya_sim             --mode mixed --seed 250217655 --tubes 18             --delta 0.065 --rho 0.26 --resolution 20             --frames 8 --fps 8             --output .ci/artifacts --site-output .ci/site
+
+          test -s .ci/artifacts/preview.png
+          test -s .ci/artifacts/rotation.mp4
+          test -s .ci/artifacts/rotation.gif
+          test -s .ci/artifacts/viewer.html
+          test -s .ci/site/index.html
+
+      - name: 上传 CI 渲染结果
+        uses: actions/upload-artifact@v4
+        with:
+          name: xuexi-ci-render-${{ github.run_id }}
+          path: |
+            .ci/artifacts
+            .ci/site
+          retention-days: 7
