@@ -1,0 +1,9 @@
+{
+  "generated_at": "2026-07-26T00:00:00+00:00",
+  "accepted": false,
+  "message": "初始稳定核心已通过测试和快速模拟；本地模型自主周期将在 GitHub Actions 中首次运行。",
+  "targets": ["2.1", "2.2", "2.3", "2.4", "2.5", "2.6", "2.7", "2.8"],
+  "baseline": {"score": 79.746},
+  "final": {"score": 79.746},
+  "attempts": []
+}

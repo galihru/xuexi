@@ -13,12 +13,12 @@ def normalize(v: Array) -> Array:
     v = np.asarray(v, dtype=float)
     n = float(np.linalg.norm(v))
     if n <= 1e-15:
-        raise ValueError("Cannot normalize a near-zero vector")
+        raise ValueError("无法归一化接近零的向量。")
     return v / n
 
 
 def orthonormal_frame(direction: Array, roll: float = 0.0) -> tuple[Array, Array, Array]:
-    """Return an orthonormal frame (u, v, w), where w is `direction`."""
+    """返回正交归一标架 (u, v, w)，其中 w 为给定方向。"""
     w = normalize(direction)
     helper = np.array([1.0, 0.0, 0.0]) if abs(w[0]) < 0.8 else np.array([0.0, 1.0, 0.0])
     u = normalize(np.cross(w, helper))
@@ -30,7 +30,7 @@ def orthonormal_frame(direction: Array, roll: float = 0.0) -> tuple[Array, Array
 
 
 def point_segment_distance_squared(points: Array, a: Array, b: Array) -> tuple[Array, Array]:
-    """Squared distance from N points to segment [a,b], plus clamped segment parameter t in [0,1]."""
+    """计算 N 个点到线段 [a,b] 的距离平方，并返回截断到 [0,1] 的线段参数 t。"""
     points = np.asarray(points, dtype=float)
     a = np.asarray(a, dtype=float)
     b = np.asarray(b, dtype=float)
@@ -47,7 +47,7 @@ def point_segment_distance_squared(points: Array, a: Array, b: Array) -> tuple[A
 
 @dataclass(frozen=True)
 class Tube:
-    """A delta-neighbourhood of a unit line segment, represented as a capsule."""
+    """单位线段的 δ 邻域，使用三维胶囊体表示。"""
 
     center: Array
     direction: Array
@@ -60,9 +60,9 @@ class Tube:
         object.__setattr__(self, "center", np.asarray(self.center, dtype=float))
         object.__setattr__(self, "direction", normalize(self.direction))
         if self.radius <= 0:
-            raise ValueError("Tube radius must be positive")
+            raise ValueError("管半径必须为正数。")
         if not (0.0 <= self.shade_start <= self.shade_end <= 1.0):
-            raise ValueError("Shading interval must lie in [0,1]")
+            raise ValueError("着色区间必须位于 [0,1]。")
 
     @property
     def a(self) -> Array:
@@ -74,12 +74,12 @@ class Tube:
 
     @property
     def paper_volume(self) -> float:
-        """The paper uses |T| ~ delta^2 for unit tubes."""
+        """论文对单位管采用 |T|≈δ² 的尺度记号。"""
         return self.radius**2
 
     @property
     def capsule_volume(self) -> float:
-        """Exact volume of a radius-delta capsule around a unit segment."""
+        """单位线段半径为 δ 的胶囊体精确体积。"""
         r = self.radius
         return math.pi * r * r + (4.0 / 3.0) * math.pi * r**3
 
@@ -128,7 +128,7 @@ class Slab:
     def __post_init__(self) -> None:
         object.__setattr__(self, "normal", normalize(self.normal))
         if self.half_thickness <= 0:
-            raise ValueError("Slab thickness must be positive")
+            raise ValueError("板厚度必须为正数。")
 
     def contains_tube(self, tube: Tube) -> bool:
         da = abs(float(np.dot(self.normal, tube.a)) - self.offset)
@@ -137,7 +137,7 @@ class Slab:
 
     @property
     def unit_ball_volume(self) -> float:
-        """Exact volume of B(0,1) intersected with an offset slab."""
+        """单位球 B(0,1) 与偏移板相交部分的精确体积。"""
         lo = max(-1.0, self.offset - self.half_thickness)
         hi = min(1.0, self.offset + self.half_thickness)
         if hi <= lo:

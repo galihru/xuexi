@@ -1,0 +1,9 @@
+{
+  "score": 79.746,
+  "tests_passed": true,
+  "simulation_passed": true,
+  "equation_labels": [],
+  "documentation_score": 4.746,
+  "test_output": "...........                                                              [100%]\n11 passed in 0.34s\n",
+  "simulation_output": "模拟完成，随机种子：250217655\n三维查看器：/mnt/data/xuexi-dynamic-ai-v2/bootstrap-repository/payload/.agent-evaluation/artifacts/viewer.html\n数值指标：/mnt/data/xuexi-dynamic-ai-v2/bootstrap-repository/payload/.agent-evaluation/artifacts/metrics.json\n旋转视频：/mnt/data/xuexi-dynamic-ai-v2/bootstrap-repository/payload/.agent-evaluation/artifacts/rotation.mp4\n网站：.agent-evaluation/site/index.html\n"
+}

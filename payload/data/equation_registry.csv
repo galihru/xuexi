@@ -1,255 +1,255 @@
 label,pdf_page,status,note
-1.1,3,executable or numerical diagnostic,Implemented directly or represented by a finite-resolution analogue.
-1.2,5,executable or numerical diagnostic,Implemented directly or represented by a finite-resolution analogue.
-1.3,5,executable or numerical diagnostic,Implemented directly or represented by a finite-resolution analogue.
-1.4,8,executable or numerical diagnostic,Implemented directly or represented by a finite-resolution analogue.
-1.5,9,executable or numerical diagnostic,Implemented directly or represented by a finite-resolution analogue.
-1.6,9,executable or numerical diagnostic,Implemented directly or represented by a finite-resolution analogue.
-1.7,9,executable or numerical diagnostic,Implemented directly or represented by a finite-resolution analogue.
-1.8,10,executable or numerical diagnostic,Implemented directly or represented by a finite-resolution analogue.
-1.9,10,executable or numerical diagnostic,Implemented directly or represented by a finite-resolution analogue.
-1.10,10,executable or numerical diagnostic,Implemented directly or represented by a finite-resolution analogue.
-1.11,10,executable or numerical diagnostic,Implemented directly or represented by a finite-resolution analogue.
-1.12,13,executable or numerical diagnostic,Implemented directly or represented by a finite-resolution analogue.
-1.13,14,executable or numerical diagnostic,Implemented directly or represented by a finite-resolution analogue.
-1.14,14,executable or numerical diagnostic,Implemented directly or represented by a finite-resolution analogue.
-2.1,16,proof-only trace,"Internal proof, refinement, pigeonholing, existential, or asymptotic step; registered but not used as a standalone numerical update law."
-2.2,16,proof-only trace,"Internal proof, refinement, pigeonholing, existential, or asymptotic step; registered but not used as a standalone numerical update law."
-2.3,16,proof-only trace,"Internal proof, refinement, pigeonholing, existential, or asymptotic step; registered but not used as a standalone numerical update law."
-2.4,17,proof-only trace,"Internal proof, refinement, pigeonholing, existential, or asymptotic step; registered but not used as a standalone numerical update law."
-2.5,18,proof-only trace,"Internal proof, refinement, pigeonholing, existential, or asymptotic step; registered but not used as a standalone numerical update law."
-2.6,18,proof-only trace,"Internal proof, refinement, pigeonholing, existential, or asymptotic step; registered but not used as a standalone numerical update law."
-2.7,18,proof-only trace,"Internal proof, refinement, pigeonholing, existential, or asymptotic step; registered but not used as a standalone numerical update law."
-2.8,18,proof-only trace,"Internal proof, refinement, pigeonholing, existential, or asymptotic step; registered but not used as a standalone numerical update law."
-2.9,21,proof-only trace,"Internal proof, refinement, pigeonholing, existential, or asymptotic step; registered but not used as a standalone numerical update law."
-2.10,21,proof-only trace,"Internal proof, refinement, pigeonholing, existential, or asymptotic step; registered but not used as a standalone numerical update law."
-2.11,21,proof-only trace,"Internal proof, refinement, pigeonholing, existential, or asymptotic step; registered but not used as a standalone numerical update law."
-2.12,22,proof-only trace,"Internal proof, refinement, pigeonholing, existential, or asymptotic step; registered but not used as a standalone numerical update law."
-4.1,25,executable or numerical diagnostic,Implemented directly or represented by a finite-resolution analogue.
-4.2,25,executable or numerical diagnostic,Implemented directly or represented by a finite-resolution analogue.
-4.3,26,executable or numerical diagnostic,Implemented directly or represented by a finite-resolution analogue.
-4.4,26,executable or numerical diagnostic,Implemented directly or represented by a finite-resolution analogue.
-4.5,27,executable or numerical diagnostic,Implemented directly or represented by a finite-resolution analogue.
-4.6,28,proof-only trace,"Internal proof, refinement, pigeonholing, existential, or asymptotic step; registered but not used as a standalone numerical update law."
-4.7,28,proof-only trace,"Internal proof, refinement, pigeonholing, existential, or asymptotic step; registered but not used as a standalone numerical update law."
-4.8,28,proof-only trace,"Internal proof, refinement, pigeonholing, existential, or asymptotic step; registered but not used as a standalone numerical update law."
-4.9,28,proof-only trace,"Internal proof, refinement, pigeonholing, existential, or asymptotic step; registered but not used as a standalone numerical update law."
-4.10,28,proof-only trace,"Internal proof, refinement, pigeonholing, existential, or asymptotic step; registered but not used as a standalone numerical update law."
-4.11,28,proof-only trace,"Internal proof, refinement, pigeonholing, existential, or asymptotic step; registered but not used as a standalone numerical update law."
-4.12,29,proof-only trace,"Internal proof, refinement, pigeonholing, existential, or asymptotic step; registered but not used as a standalone numerical update law."
-4.13,29,proof-only trace,"Internal proof, refinement, pigeonholing, existential, or asymptotic step; registered but not used as a standalone numerical update law."
-4.14,29,proof-only trace,"Internal proof, refinement, pigeonholing, existential, or asymptotic step; registered but not used as a standalone numerical update law."
-4.15,30,proof-only trace,"Internal proof, refinement, pigeonholing, existential, or asymptotic step; registered but not used as a standalone numerical update law."
-4.16,30,proof-only trace,"Internal proof, refinement, pigeonholing, existential, or asymptotic step; registered but not used as a standalone numerical update law."
-4.17,30,proof-only trace,"Internal proof, refinement, pigeonholing, existential, or asymptotic step; registered but not used as a standalone numerical update law."
-4.18,30,proof-only trace,"Internal proof, refinement, pigeonholing, existential, or asymptotic step; registered but not used as a standalone numerical update law."
-4.19,30,proof-only trace,"Internal proof, refinement, pigeonholing, existential, or asymptotic step; registered but not used as a standalone numerical update law."
-4.20,31,proof-only trace,"Internal proof, refinement, pigeonholing, existential, or asymptotic step; registered but not used as a standalone numerical update law."
-4.21,32,proof-only trace,"Internal proof, refinement, pigeonholing, existential, or asymptotic step; registered but not used as a standalone numerical update law."
-4.22,32,proof-only trace,"Internal proof, refinement, pigeonholing, existential, or asymptotic step; registered but not used as a standalone numerical update law."
-4.23,32,proof-only trace,"Internal proof, refinement, pigeonholing, existential, or asymptotic step; registered but not used as a standalone numerical update law."
-4.24,32,proof-only trace,"Internal proof, refinement, pigeonholing, existential, or asymptotic step; registered but not used as a standalone numerical update law."
-4.25,33,proof-only trace,"Internal proof, refinement, pigeonholing, existential, or asymptotic step; registered but not used as a standalone numerical update law."
-4.26,34,diagnostic trace,"Represented indirectly through sampled covers, multiscale metrics, or derived diagnostics."
-4.27,34,proof-only trace,"Internal proof, refinement, pigeonholing, existential, or asymptotic step; registered but not used as a standalone numerical update law."
-4.28,34,proof-only trace,"Internal proof, refinement, pigeonholing, existential, or asymptotic step; registered but not used as a standalone numerical update law."
-4.29,35,proof-only trace,"Internal proof, refinement, pigeonholing, existential, or asymptotic step; registered but not used as a standalone numerical update law."
-4.30,35,proof-only trace,"Internal proof, refinement, pigeonholing, existential, or asymptotic step; registered but not used as a standalone numerical update law."
-4.31,35,diagnostic trace,"Represented indirectly through sampled covers, multiscale metrics, or derived diagnostics."
-4.32,35,proof-only trace,"Internal proof, refinement, pigeonholing, existential, or asymptotic step; registered but not used as a standalone numerical update law."
-4.33,35,proof-only trace,"Internal proof, refinement, pigeonholing, existential, or asymptotic step; registered but not used as a standalone numerical update law."
-4.34,35,proof-only trace,"Internal proof, refinement, pigeonholing, existential, or asymptotic step; registered but not used as a standalone numerical update law."
-5.1,36,executable or numerical diagnostic,Implemented directly or represented by a finite-resolution analogue.
-5.2,36,executable or numerical diagnostic,Implemented directly or represented by a finite-resolution analogue.
-5.3,36,executable or numerical diagnostic,Implemented directly or represented by a finite-resolution analogue.
-5.4,37,executable or numerical diagnostic,Implemented directly or represented by a finite-resolution analogue.
-5.5,37,executable or numerical diagnostic,Implemented directly or represented by a finite-resolution analogue.
-5.6,37,executable or numerical diagnostic,Implemented directly or represented by a finite-resolution analogue.
-5.7,38,proof-only trace,"Internal proof, refinement, pigeonholing, existential, or asymptotic step; registered but not used as a standalone numerical update law."
-5.8,38,proof-only trace,"Internal proof, refinement, pigeonholing, existential, or asymptotic step; registered but not used as a standalone numerical update law."
-5.9,38,proof-only trace,"Internal proof, refinement, pigeonholing, existential, or asymptotic step; registered but not used as a standalone numerical update law."
-5.10,39,proof-only trace,"Internal proof, refinement, pigeonholing, existential, or asymptotic step; registered but not used as a standalone numerical update law."
-5.11,39,proof-only trace,"Internal proof, refinement, pigeonholing, existential, or asymptotic step; registered but not used as a standalone numerical update law."
-5.14,39,diagnostic trace,"Represented indirectly through sampled covers, multiscale metrics, or derived diagnostics."
-5.12,40,proof-only trace,"Internal proof, refinement, pigeonholing, existential, or asymptotic step; registered but not used as a standalone numerical update law."
-5.13,41,proof-only trace,"Internal proof, refinement, pigeonholing, existential, or asymptotic step; registered but not used as a standalone numerical update law."
-5.15,43,proof-only trace,"Internal proof, refinement, pigeonholing, existential, or asymptotic step; registered but not used as a standalone numerical update law."
-5.16,44,proof-only trace,"Internal proof, refinement, pigeonholing, existential, or asymptotic step; registered but not used as a standalone numerical update law."
-5.17,44,proof-only trace,"Internal proof, refinement, pigeonholing, existential, or asymptotic step; registered but not used as a standalone numerical update law."
-5.18,44,proof-only trace,"Internal proof, refinement, pigeonholing, existential, or asymptotic step; registered but not used as a standalone numerical update law."
-5.19,44,proof-only trace,"Internal proof, refinement, pigeonholing, existential, or asymptotic step; registered but not used as a standalone numerical update law."
-5.20,45,proof-only trace,"Internal proof, refinement, pigeonholing, existential, or asymptotic step; registered but not used as a standalone numerical update law."
-5.21,45,proof-only trace,"Internal proof, refinement, pigeonholing, existential, or asymptotic step; registered but not used as a standalone numerical update law."
-5.22,45,proof-only trace,"Internal proof, refinement, pigeonholing, existential, or asymptotic step; registered but not used as a standalone numerical update law."
-5.23,45,proof-only trace,"Internal proof, refinement, pigeonholing, existential, or asymptotic step; registered but not used as a standalone numerical update law."
-5.24,46,proof-only trace,"Internal proof, refinement, pigeonholing, existential, or asymptotic step; registered but not used as a standalone numerical update law."
-5.25,46,proof-only trace,"Internal proof, refinement, pigeonholing, existential, or asymptotic step; registered but not used as a standalone numerical update law."
-5.26,46,proof-only trace,"Internal proof, refinement, pigeonholing, existential, or asymptotic step; registered but not used as a standalone numerical update law."
-5.27,47,proof-only trace,"Internal proof, refinement, pigeonholing, existential, or asymptotic step; registered but not used as a standalone numerical update law."
-5.28,47,proof-only trace,"Internal proof, refinement, pigeonholing, existential, or asymptotic step; registered but not used as a standalone numerical update law."
-5.29,47,proof-only trace,"Internal proof, refinement, pigeonholing, existential, or asymptotic step; registered but not used as a standalone numerical update law."
-5.30,47,proof-only trace,"Internal proof, refinement, pigeonholing, existential, or asymptotic step; registered but not used as a standalone numerical update law."
-5.31,48,proof-only trace,"Internal proof, refinement, pigeonholing, existential, or asymptotic step; registered but not used as a standalone numerical update law."
-5.32,48,proof-only trace,"Internal proof, refinement, pigeonholing, existential, or asymptotic step; registered but not used as a standalone numerical update law."
-5.33,48,proof-only trace,"Internal proof, refinement, pigeonholing, existential, or asymptotic step; registered but not used as a standalone numerical update law."
-5.34,49,proof-only trace,"Internal proof, refinement, pigeonholing, existential, or asymptotic step; registered but not used as a standalone numerical update law."
-5.35,49,proof-only trace,"Internal proof, refinement, pigeonholing, existential, or asymptotic step; registered but not used as a standalone numerical update law."
-5.36,49,proof-only trace,"Internal proof, refinement, pigeonholing, existential, or asymptotic step; registered but not used as a standalone numerical update law."
-5.37,50,proof-only trace,"Internal proof, refinement, pigeonholing, existential, or asymptotic step; registered but not used as a standalone numerical update law."
-5.38,50,proof-only trace,"Internal proof, refinement, pigeonholing, existential, or asymptotic step; registered but not used as a standalone numerical update law."
-5.39,51,proof-only trace,"Internal proof, refinement, pigeonholing, existential, or asymptotic step; registered but not used as a standalone numerical update law."
-6.1,51,proof-only trace,"Internal proof, refinement, pigeonholing, existential, or asymptotic step; registered but not used as a standalone numerical update law."
-6.2,52,proof-only trace,"Internal proof, refinement, pigeonholing, existential, or asymptotic step; registered but not used as a standalone numerical update law."
-6.3,53,proof-only trace,"Internal proof, refinement, pigeonholing, existential, or asymptotic step; registered but not used as a standalone numerical update law."
-6.4,53,proof-only trace,"Internal proof, refinement, pigeonholing, existential, or asymptotic step; registered but not used as a standalone numerical update law."
-6.5,53,proof-only trace,"Internal proof, refinement, pigeonholing, existential, or asymptotic step; registered but not used as a standalone numerical update law."
-6.6,53,proof-only trace,"Internal proof, refinement, pigeonholing, existential, or asymptotic step; registered but not used as a standalone numerical update law."
-6.7,53,proof-only trace,"Internal proof, refinement, pigeonholing, existential, or asymptotic step; registered but not used as a standalone numerical update law."
-6.8,54,proof-only trace,"Internal proof, refinement, pigeonholing, existential, or asymptotic step; registered but not used as a standalone numerical update law."
-6.9,54,proof-only trace,"Internal proof, refinement, pigeonholing, existential, or asymptotic step; registered but not used as a standalone numerical update law."
-6.10,54,proof-only trace,"Internal proof, refinement, pigeonholing, existential, or asymptotic step; registered but not used as a standalone numerical update law."
-6.11,55,proof-only trace,"Internal proof, refinement, pigeonholing, existential, or asymptotic step; registered but not used as a standalone numerical update law."
-6.12,55,proof-only trace,"Internal proof, refinement, pigeonholing, existential, or asymptotic step; registered but not used as a standalone numerical update law."
-6.13,55,proof-only trace,"Internal proof, refinement, pigeonholing, existential, or asymptotic step; registered but not used as a standalone numerical update law."
-6.14,55,proof-only trace,"Internal proof, refinement, pigeonholing, existential, or asymptotic step; registered but not used as a standalone numerical update law."
-6.15,56,proof-only trace,"Internal proof, refinement, pigeonholing, existential, or asymptotic step; registered but not used as a standalone numerical update law."
-6.16,56,proof-only trace,"Internal proof, refinement, pigeonholing, existential, or asymptotic step; registered but not used as a standalone numerical update law."
-6.17,56,proof-only trace,"Internal proof, refinement, pigeonholing, existential, or asymptotic step; registered but not used as a standalone numerical update law."
-6.18,57,proof-only trace,"Internal proof, refinement, pigeonholing, existential, or asymptotic step; registered but not used as a standalone numerical update law."
-6.19,57,proof-only trace,"Internal proof, refinement, pigeonholing, existential, or asymptotic step; registered but not used as a standalone numerical update law."
-6.20,57,proof-only trace,"Internal proof, refinement, pigeonholing, existential, or asymptotic step; registered but not used as a standalone numerical update law."
-6.21,58,proof-only trace,"Internal proof, refinement, pigeonholing, existential, or asymptotic step; registered but not used as a standalone numerical update law."
-6.22,58,proof-only trace,"Internal proof, refinement, pigeonholing, existential, or asymptotic step; registered but not used as a standalone numerical update law."
-6.23,58,proof-only trace,"Internal proof, refinement, pigeonholing, existential, or asymptotic step; registered but not used as a standalone numerical update law."
-6.24,58,proof-only trace,"Internal proof, refinement, pigeonholing, existential, or asymptotic step; registered but not used as a standalone numerical update law."
-6.25,58,proof-only trace,"Internal proof, refinement, pigeonholing, existential, or asymptotic step; registered but not used as a standalone numerical update law."
-6.26,59,proof-only trace,"Internal proof, refinement, pigeonholing, existential, or asymptotic step; registered but not used as a standalone numerical update law."
-6.27,59,proof-only trace,"Internal proof, refinement, pigeonholing, existential, or asymptotic step; registered but not used as a standalone numerical update law."
-6.28,59,proof-only trace,"Internal proof, refinement, pigeonholing, existential, or asymptotic step; registered but not used as a standalone numerical update law."
-6.29,59,proof-only trace,"Internal proof, refinement, pigeonholing, existential, or asymptotic step; registered but not used as a standalone numerical update law."
-6.30,59,proof-only trace,"Internal proof, refinement, pigeonholing, existential, or asymptotic step; registered but not used as a standalone numerical update law."
-7.1,61,proof-only trace,"Internal proof, refinement, pigeonholing, existential, or asymptotic step; registered but not used as a standalone numerical update law."
-7.2,62,executable or numerical diagnostic,Implemented directly or represented by a finite-resolution analogue.
-7.3,63,executable or numerical diagnostic,Implemented directly or represented by a finite-resolution analogue.
-7.4,63,executable or numerical diagnostic,Implemented directly or represented by a finite-resolution analogue.
-7.5,65,executable or numerical diagnostic,Implemented directly or represented by a finite-resolution analogue.
-7.6,66,diagnostic trace,"Represented indirectly through sampled covers, multiscale metrics, or derived diagnostics."
-7.7,68,diagnostic trace,"Represented indirectly through sampled covers, multiscale metrics, or derived diagnostics."
-7.8,68,diagnostic trace,"Represented indirectly through sampled covers, multiscale metrics, or derived diagnostics."
-7.9,68,diagnostic trace,"Represented indirectly through sampled covers, multiscale metrics, or derived diagnostics."
-7.10,68,diagnostic trace,"Represented indirectly through sampled covers, multiscale metrics, or derived diagnostics."
-7.11,68,diagnostic trace,"Represented indirectly through sampled covers, multiscale metrics, or derived diagnostics."
-7.12,68,diagnostic trace,"Represented indirectly through sampled covers, multiscale metrics, or derived diagnostics."
-7.13,68,diagnostic trace,"Represented indirectly through sampled covers, multiscale metrics, or derived diagnostics."
-7.14,70,diagnostic trace,"Represented indirectly through sampled covers, multiscale metrics, or derived diagnostics."
-7.15,71,diagnostic trace,"Represented indirectly through sampled covers, multiscale metrics, or derived diagnostics."
-8.1,74,proof-only trace,"Internal proof, refinement, pigeonholing, existential, or asymptotic step; registered but not used as a standalone numerical update law."
-8.2,75,proof-only trace,"Internal proof, refinement, pigeonholing, existential, or asymptotic step; registered but not used as a standalone numerical update law."
-8.3,75,proof-only trace,"Internal proof, refinement, pigeonholing, existential, or asymptotic step; registered but not used as a standalone numerical update law."
-8.4,76,proof-only trace,"Internal proof, refinement, pigeonholing, existential, or asymptotic step; registered but not used as a standalone numerical update law."
-8.5,76,proof-only trace,"Internal proof, refinement, pigeonholing, existential, or asymptotic step; registered but not used as a standalone numerical update law."
-8.6,76,proof-only trace,"Internal proof, refinement, pigeonholing, existential, or asymptotic step; registered but not used as a standalone numerical update law."
-8.7,77,proof-only trace,"Internal proof, refinement, pigeonholing, existential, or asymptotic step; registered but not used as a standalone numerical update law."
-8.8,78,proof-only trace,"Internal proof, refinement, pigeonholing, existential, or asymptotic step; registered but not used as a standalone numerical update law."
-8.9,78,proof-only trace,"Internal proof, refinement, pigeonholing, existential, or asymptotic step; registered but not used as a standalone numerical update law."
-8.10,78,proof-only trace,"Internal proof, refinement, pigeonholing, existential, or asymptotic step; registered but not used as a standalone numerical update law."
-8.11,79,proof-only trace,"Internal proof, refinement, pigeonholing, existential, or asymptotic step; registered but not used as a standalone numerical update law."
-8.12,81,proof-only trace,"Internal proof, refinement, pigeonholing, existential, or asymptotic step; registered but not used as a standalone numerical update law."
-8.13,82,proof-only trace,"Internal proof, refinement, pigeonholing, existential, or asymptotic step; registered but not used as a standalone numerical update law."
-8.14,82,proof-only trace,"Internal proof, refinement, pigeonholing, existential, or asymptotic step; registered but not used as a standalone numerical update law."
-8.15,83,proof-only trace,"Internal proof, refinement, pigeonholing, existential, or asymptotic step; registered but not used as a standalone numerical update law."
-8.16,83,proof-only trace,"Internal proof, refinement, pigeonholing, existential, or asymptotic step; registered but not used as a standalone numerical update law."
-8.17,83,proof-only trace,"Internal proof, refinement, pigeonholing, existential, or asymptotic step; registered but not used as a standalone numerical update law."
-8.18,84,proof-only trace,"Internal proof, refinement, pigeonholing, existential, or asymptotic step; registered but not used as a standalone numerical update law."
-8.19,84,proof-only trace,"Internal proof, refinement, pigeonholing, existential, or asymptotic step; registered but not used as a standalone numerical update law."
-8.20,85,proof-only trace,"Internal proof, refinement, pigeonholing, existential, or asymptotic step; registered but not used as a standalone numerical update law."
-8.21,85,proof-only trace,"Internal proof, refinement, pigeonholing, existential, or asymptotic step; registered but not used as a standalone numerical update law."
-8.22,85,proof-only trace,"Internal proof, refinement, pigeonholing, existential, or asymptotic step; registered but not used as a standalone numerical update law."
-8.23,86,proof-only trace,"Internal proof, refinement, pigeonholing, existential, or asymptotic step; registered but not used as a standalone numerical update law."
-8.24,86,proof-only trace,"Internal proof, refinement, pigeonholing, existential, or asymptotic step; registered but not used as a standalone numerical update law."
-8.25,86,proof-only trace,"Internal proof, refinement, pigeonholing, existential, or asymptotic step; registered but not used as a standalone numerical update law."
-8.26,87,proof-only trace,"Internal proof, refinement, pigeonholing, existential, or asymptotic step; registered but not used as a standalone numerical update law."
-8.27,87,proof-only trace,"Internal proof, refinement, pigeonholing, existential, or asymptotic step; registered but not used as a standalone numerical update law."
-8.28,87,proof-only trace,"Internal proof, refinement, pigeonholing, existential, or asymptotic step; registered but not used as a standalone numerical update law."
-8.29,88,proof-only trace,"Internal proof, refinement, pigeonholing, existential, or asymptotic step; registered but not used as a standalone numerical update law."
-8.30,88,proof-only trace,"Internal proof, refinement, pigeonholing, existential, or asymptotic step; registered but not used as a standalone numerical update law."
-8.31,89,proof-only trace,"Internal proof, refinement, pigeonholing, existential, or asymptotic step; registered but not used as a standalone numerical update law."
-8.32,89,proof-only trace,"Internal proof, refinement, pigeonholing, existential, or asymptotic step; registered but not used as a standalone numerical update law."
-8.33,90,proof-only trace,"Internal proof, refinement, pigeonholing, existential, or asymptotic step; registered but not used as a standalone numerical update law."
-8.34,90,proof-only trace,"Internal proof, refinement, pigeonholing, existential, or asymptotic step; registered but not used as a standalone numerical update law."
-8.35,90,proof-only trace,"Internal proof, refinement, pigeonholing, existential, or asymptotic step; registered but not used as a standalone numerical update law."
-8.36,90,proof-only trace,"Internal proof, refinement, pigeonholing, existential, or asymptotic step; registered but not used as a standalone numerical update law."
-8.37,90,proof-only trace,"Internal proof, refinement, pigeonholing, existential, or asymptotic step; registered but not used as a standalone numerical update law."
-8.38,90,proof-only trace,"Internal proof, refinement, pigeonholing, existential, or asymptotic step; registered but not used as a standalone numerical update law."
-8.39,91,proof-only trace,"Internal proof, refinement, pigeonholing, existential, or asymptotic step; registered but not used as a standalone numerical update law."
-8.40,91,proof-only trace,"Internal proof, refinement, pigeonholing, existential, or asymptotic step; registered but not used as a standalone numerical update law."
-8.41,91,proof-only trace,"Internal proof, refinement, pigeonholing, existential, or asymptotic step; registered but not used as a standalone numerical update law."
-8.42,91,proof-only trace,"Internal proof, refinement, pigeonholing, existential, or asymptotic step; registered but not used as a standalone numerical update law."
-8.43,91,proof-only trace,"Internal proof, refinement, pigeonholing, existential, or asymptotic step; registered but not used as a standalone numerical update law."
-8.44,91,proof-only trace,"Internal proof, refinement, pigeonholing, existential, or asymptotic step; registered but not used as a standalone numerical update law."
-8.45,91,proof-only trace,"Internal proof, refinement, pigeonholing, existential, or asymptotic step; registered but not used as a standalone numerical update law."
-8.46,92,proof-only trace,"Internal proof, refinement, pigeonholing, existential, or asymptotic step; registered but not used as a standalone numerical update law."
-8.47,92,proof-only trace,"Internal proof, refinement, pigeonholing, existential, or asymptotic step; registered but not used as a standalone numerical update law."
-8.48,92,proof-only trace,"Internal proof, refinement, pigeonholing, existential, or asymptotic step; registered but not used as a standalone numerical update law."
-8.49,92,proof-only trace,"Internal proof, refinement, pigeonholing, existential, or asymptotic step; registered but not used as a standalone numerical update law."
-8.50,92,proof-only trace,"Internal proof, refinement, pigeonholing, existential, or asymptotic step; registered but not used as a standalone numerical update law."
-8.51,92,proof-only trace,"Internal proof, refinement, pigeonholing, existential, or asymptotic step; registered but not used as a standalone numerical update law."
-8.52,93,proof-only trace,"Internal proof, refinement, pigeonholing, existential, or asymptotic step; registered but not used as a standalone numerical update law."
-8.53,93,proof-only trace,"Internal proof, refinement, pigeonholing, existential, or asymptotic step; registered but not used as a standalone numerical update law."
-8.54,94,proof-only trace,"Internal proof, refinement, pigeonholing, existential, or asymptotic step; registered but not used as a standalone numerical update law."
-8.55,94,proof-only trace,"Internal proof, refinement, pigeonholing, existential, or asymptotic step; registered but not used as a standalone numerical update law."
-8.56,94,proof-only trace,"Internal proof, refinement, pigeonholing, existential, or asymptotic step; registered but not used as a standalone numerical update law."
-8.57,94,proof-only trace,"Internal proof, refinement, pigeonholing, existential, or asymptotic step; registered but not used as a standalone numerical update law."
-8.58,94,proof-only trace,"Internal proof, refinement, pigeonholing, existential, or asymptotic step; registered but not used as a standalone numerical update law."
-8.59,94,proof-only trace,"Internal proof, refinement, pigeonholing, existential, or asymptotic step; registered but not used as a standalone numerical update law."
-8.60,95,proof-only trace,"Internal proof, refinement, pigeonholing, existential, or asymptotic step; registered but not used as a standalone numerical update law."
-8.61,95,proof-only trace,"Internal proof, refinement, pigeonholing, existential, or asymptotic step; registered but not used as a standalone numerical update law."
-8.62,95,proof-only trace,"Internal proof, refinement, pigeonholing, existential, or asymptotic step; registered but not used as a standalone numerical update law."
-8.63,96,proof-only trace,"Internal proof, refinement, pigeonholing, existential, or asymptotic step; registered but not used as a standalone numerical update law."
-8.64,96,proof-only trace,"Internal proof, refinement, pigeonholing, existential, or asymptotic step; registered but not used as a standalone numerical update law."
-8.65,96,proof-only trace,"Internal proof, refinement, pigeonholing, existential, or asymptotic step; registered but not used as a standalone numerical update law."
-8.66,97,proof-only trace,"Internal proof, refinement, pigeonholing, existential, or asymptotic step; registered but not used as a standalone numerical update law."
-8.67,98,proof-only trace,"Internal proof, refinement, pigeonholing, existential, or asymptotic step; registered but not used as a standalone numerical update law."
-9.1,100,executable or numerical diagnostic,Implemented directly or represented by a finite-resolution analogue.
-9.2,101,diagnostic trace,"Represented indirectly through sampled covers, multiscale metrics, or derived diagnostics."
-9.3,101,diagnostic trace,"Represented indirectly through sampled covers, multiscale metrics, or derived diagnostics."
-9.4,101,diagnostic trace,"Represented indirectly through sampled covers, multiscale metrics, or derived diagnostics."
-9.5,101,diagnostic trace,"Represented indirectly through sampled covers, multiscale metrics, or derived diagnostics."
-9.6,101,diagnostic trace,"Represented indirectly through sampled covers, multiscale metrics, or derived diagnostics."
-9.7,102,diagnostic trace,"Represented indirectly through sampled covers, multiscale metrics, or derived diagnostics."
-9.8,103,diagnostic trace,"Represented indirectly through sampled covers, multiscale metrics, or derived diagnostics."
-9.9,103,diagnostic trace,"Represented indirectly through sampled covers, multiscale metrics, or derived diagnostics."
-9.10,103,diagnostic trace,"Represented indirectly through sampled covers, multiscale metrics, or derived diagnostics."
-10.1,104,executable or numerical diagnostic,Implemented directly or represented by a finite-resolution analogue.
-10.2,105,diagnostic trace,"Represented indirectly through sampled covers, multiscale metrics, or derived diagnostics."
-10.3,105,diagnostic trace,"Represented indirectly through sampled covers, multiscale metrics, or derived diagnostics."
-10.4,106,diagnostic trace,"Represented indirectly through sampled covers, multiscale metrics, or derived diagnostics."
-10.5,106,diagnostic trace,"Represented indirectly through sampled covers, multiscale metrics, or derived diagnostics."
-10.6,106,diagnostic trace,"Represented indirectly through sampled covers, multiscale metrics, or derived diagnostics."
-10.7,106,diagnostic trace,"Represented indirectly through sampled covers, multiscale metrics, or derived diagnostics."
-10.8,106,diagnostic trace,"Represented indirectly through sampled covers, multiscale metrics, or derived diagnostics."
-10.9,106,diagnostic trace,"Represented indirectly through sampled covers, multiscale metrics, or derived diagnostics."
-10.10,106,diagnostic trace,"Represented indirectly through sampled covers, multiscale metrics, or derived diagnostics."
-10.11,106,diagnostic trace,"Represented indirectly through sampled covers, multiscale metrics, or derived diagnostics."
-10.12,107,diagnostic trace,"Represented indirectly through sampled covers, multiscale metrics, or derived diagnostics."
-10.13,107,diagnostic trace,"Represented indirectly through sampled covers, multiscale metrics, or derived diagnostics."
-10.14,108,diagnostic trace,"Represented indirectly through sampled covers, multiscale metrics, or derived diagnostics."
-10.15,108,diagnostic trace,"Represented indirectly through sampled covers, multiscale metrics, or derived diagnostics."
-10.16,109,diagnostic trace,"Represented indirectly through sampled covers, multiscale metrics, or derived diagnostics."
-10.17,109,diagnostic trace,"Represented indirectly through sampled covers, multiscale metrics, or derived diagnostics."
-10.18,109,diagnostic trace,"Represented indirectly through sampled covers, multiscale metrics, or derived diagnostics."
-10.19,109,diagnostic trace,"Represented indirectly through sampled covers, multiscale metrics, or derived diagnostics."
-10.20,110,diagnostic trace,"Represented indirectly through sampled covers, multiscale metrics, or derived diagnostics."
-11.1,111,executable or numerical diagnostic,Implemented directly or represented by a finite-resolution analogue.
-11.2,112,diagnostic trace,"Represented indirectly through sampled covers, multiscale metrics, or derived diagnostics."
-11.3,112,diagnostic trace,"Represented indirectly through sampled covers, multiscale metrics, or derived diagnostics."
-11.4,112,diagnostic trace,"Represented indirectly through sampled covers, multiscale metrics, or derived diagnostics."
-11.5,112,diagnostic trace,"Represented indirectly through sampled covers, multiscale metrics, or derived diagnostics."
-11.6,114,diagnostic trace,"Represented indirectly through sampled covers, multiscale metrics, or derived diagnostics."
-12.1,114,executable or numerical diagnostic,Implemented directly or represented by a finite-resolution analogue.
-12.2,114,diagnostic trace,"Represented indirectly through sampled covers, multiscale metrics, or derived diagnostics."
-12.3,115,diagnostic trace,"Represented indirectly through sampled covers, multiscale metrics, or derived diagnostics."
-12.4,115,diagnostic trace,"Represented indirectly through sampled covers, multiscale metrics, or derived diagnostics."
-12.5,115,diagnostic trace,"Represented indirectly through sampled covers, multiscale metrics, or derived diagnostics."
-12.6,115,diagnostic trace,"Represented indirectly through sampled covers, multiscale metrics, or derived diagnostics."
-12.7,115,diagnostic trace,"Represented indirectly through sampled covers, multiscale metrics, or derived diagnostics."
+1.1,3,可执行或数值诊断,已由稳定核心实现，或以有限分辨率数值类比形式检查。
+1.2,5,可执行或数值诊断,已由稳定核心实现，或以有限分辨率数值类比形式检查。
+1.3,5,可执行或数值诊断,已由稳定核心实现，或以有限分辨率数值类比形式检查。
+1.4,8,可执行或数值诊断,已由稳定核心实现，或以有限分辨率数值类比形式检查。
+1.5,9,可执行或数值诊断,已由稳定核心实现，或以有限分辨率数值类比形式检查。
+1.6,9,可执行或数值诊断,已由稳定核心实现，或以有限分辨率数值类比形式检查。
+1.7,9,可执行或数值诊断,已由稳定核心实现，或以有限分辨率数值类比形式检查。
+1.8,10,可执行或数值诊断,已由稳定核心实现，或以有限分辨率数值类比形式检查。
+1.9,10,可执行或数值诊断,已由稳定核心实现，或以有限分辨率数值类比形式检查。
+1.10,10,可执行或数值诊断,已由稳定核心实现，或以有限分辨率数值类比形式检查。
+1.11,10,可执行或数值诊断,已由稳定核心实现，或以有限分辨率数值类比形式检查。
+1.12,13,可执行或数值诊断,已由稳定核心实现，或以有限分辨率数值类比形式检查。
+1.13,14,可执行或数值诊断,已由稳定核心实现，或以有限分辨率数值类比形式检查。
+1.14,14,可执行或数值诊断,已由稳定核心实现，或以有限分辨率数值类比形式检查。
+2.1,16,仅证明链条,涉及精细化、鸽巢原理、存在性选择、归纳尺度或渐近比较；建立依赖记录但不伪造独立更新律。
+2.2,16,仅证明链条,涉及精细化、鸽巢原理、存在性选择、归纳尺度或渐近比较；建立依赖记录但不伪造独立更新律。
+2.3,16,仅证明链条,涉及精细化、鸽巢原理、存在性选择、归纳尺度或渐近比较；建立依赖记录但不伪造独立更新律。
+2.4,17,仅证明链条,涉及精细化、鸽巢原理、存在性选择、归纳尺度或渐近比较；建立依赖记录但不伪造独立更新律。
+2.5,18,仅证明链条,涉及精细化、鸽巢原理、存在性选择、归纳尺度或渐近比较；建立依赖记录但不伪造独立更新律。
+2.6,18,仅证明链条,涉及精细化、鸽巢原理、存在性选择、归纳尺度或渐近比较；建立依赖记录但不伪造独立更新律。
+2.7,18,仅证明链条,涉及精细化、鸽巢原理、存在性选择、归纳尺度或渐近比较；建立依赖记录但不伪造独立更新律。
+2.8,18,仅证明链条,涉及精细化、鸽巢原理、存在性选择、归纳尺度或渐近比较；建立依赖记录但不伪造独立更新律。
+2.9,21,仅证明链条,涉及精细化、鸽巢原理、存在性选择、归纳尺度或渐近比较；建立依赖记录但不伪造独立更新律。
+2.10,21,仅证明链条,涉及精细化、鸽巢原理、存在性选择、归纳尺度或渐近比较；建立依赖记录但不伪造独立更新律。
+2.11,21,仅证明链条,涉及精细化、鸽巢原理、存在性选择、归纳尺度或渐近比较；建立依赖记录但不伪造独立更新律。
+2.12,22,仅证明链条,涉及精细化、鸽巢原理、存在性选择、归纳尺度或渐近比较；建立依赖记录但不伪造独立更新律。
+4.1,25,可执行或数值诊断,已由稳定核心实现，或以有限分辨率数值类比形式检查。
+4.2,25,可执行或数值诊断,已由稳定核心实现，或以有限分辨率数值类比形式检查。
+4.3,26,可执行或数值诊断,已由稳定核心实现，或以有限分辨率数值类比形式检查。
+4.4,26,可执行或数值诊断,已由稳定核心实现，或以有限分辨率数值类比形式检查。
+4.5,27,可执行或数值诊断,已由稳定核心实现，或以有限分辨率数值类比形式检查。
+4.6,28,仅证明链条,涉及精细化、鸽巢原理、存在性选择、归纳尺度或渐近比较；建立依赖记录但不伪造独立更新律。
+4.7,28,仅证明链条,涉及精细化、鸽巢原理、存在性选择、归纳尺度或渐近比较；建立依赖记录但不伪造独立更新律。
+4.8,28,仅证明链条,涉及精细化、鸽巢原理、存在性选择、归纳尺度或渐近比较；建立依赖记录但不伪造独立更新律。
+4.9,28,仅证明链条,涉及精细化、鸽巢原理、存在性选择、归纳尺度或渐近比较；建立依赖记录但不伪造独立更新律。
+4.10,28,仅证明链条,涉及精细化、鸽巢原理、存在性选择、归纳尺度或渐近比较；建立依赖记录但不伪造独立更新律。
+4.11,28,仅证明链条,涉及精细化、鸽巢原理、存在性选择、归纳尺度或渐近比较；建立依赖记录但不伪造独立更新律。
+4.12,29,仅证明链条,涉及精细化、鸽巢原理、存在性选择、归纳尺度或渐近比较；建立依赖记录但不伪造独立更新律。
+4.13,29,仅证明链条,涉及精细化、鸽巢原理、存在性选择、归纳尺度或渐近比较；建立依赖记录但不伪造独立更新律。
+4.14,29,仅证明链条,涉及精细化、鸽巢原理、存在性选择、归纳尺度或渐近比较；建立依赖记录但不伪造独立更新律。
+4.15,30,仅证明链条,涉及精细化、鸽巢原理、存在性选择、归纳尺度或渐近比较；建立依赖记录但不伪造独立更新律。
+4.16,30,仅证明链条,涉及精细化、鸽巢原理、存在性选择、归纳尺度或渐近比较；建立依赖记录但不伪造独立更新律。
+4.17,30,仅证明链条,涉及精细化、鸽巢原理、存在性选择、归纳尺度或渐近比较；建立依赖记录但不伪造独立更新律。
+4.18,30,仅证明链条,涉及精细化、鸽巢原理、存在性选择、归纳尺度或渐近比较；建立依赖记录但不伪造独立更新律。
+4.19,30,仅证明链条,涉及精细化、鸽巢原理、存在性选择、归纳尺度或渐近比较；建立依赖记录但不伪造独立更新律。
+4.20,31,仅证明链条,涉及精细化、鸽巢原理、存在性选择、归纳尺度或渐近比较；建立依赖记录但不伪造独立更新律。
+4.21,32,仅证明链条,涉及精细化、鸽巢原理、存在性选择、归纳尺度或渐近比较；建立依赖记录但不伪造独立更新律。
+4.22,32,仅证明链条,涉及精细化、鸽巢原理、存在性选择、归纳尺度或渐近比较；建立依赖记录但不伪造独立更新律。
+4.23,32,仅证明链条,涉及精细化、鸽巢原理、存在性选择、归纳尺度或渐近比较；建立依赖记录但不伪造独立更新律。
+4.24,32,仅证明链条,涉及精细化、鸽巢原理、存在性选择、归纳尺度或渐近比较；建立依赖记录但不伪造独立更新律。
+4.25,33,仅证明链条,涉及精细化、鸽巢原理、存在性选择、归纳尺度或渐近比较；建立依赖记录但不伪造独立更新律。
+4.26,34,证明链条数值跟踪,保留为参数、覆盖、重数或尺度关系的诊断；不把隐含常数视为一。
+4.27,34,仅证明链条,涉及精细化、鸽巢原理、存在性选择、归纳尺度或渐近比较；建立依赖记录但不伪造独立更新律。
+4.28,34,仅证明链条,涉及精细化、鸽巢原理、存在性选择、归纳尺度或渐近比较；建立依赖记录但不伪造独立更新律。
+4.29,35,仅证明链条,涉及精细化、鸽巢原理、存在性选择、归纳尺度或渐近比较；建立依赖记录但不伪造独立更新律。
+4.30,35,仅证明链条,涉及精细化、鸽巢原理、存在性选择、归纳尺度或渐近比较；建立依赖记录但不伪造独立更新律。
+4.31,35,证明链条数值跟踪,保留为参数、覆盖、重数或尺度关系的诊断；不把隐含常数视为一。
+4.32,35,仅证明链条,涉及精细化、鸽巢原理、存在性选择、归纳尺度或渐近比较；建立依赖记录但不伪造独立更新律。
+4.33,35,仅证明链条,涉及精细化、鸽巢原理、存在性选择、归纳尺度或渐近比较；建立依赖记录但不伪造独立更新律。
+4.34,35,仅证明链条,涉及精细化、鸽巢原理、存在性选择、归纳尺度或渐近比较；建立依赖记录但不伪造独立更新律。
+5.1,36,可执行或数值诊断,已由稳定核心实现，或以有限分辨率数值类比形式检查。
+5.2,36,可执行或数值诊断,已由稳定核心实现，或以有限分辨率数值类比形式检查。
+5.3,36,可执行或数值诊断,已由稳定核心实现，或以有限分辨率数值类比形式检查。
+5.4,37,可执行或数值诊断,已由稳定核心实现，或以有限分辨率数值类比形式检查。
+5.5,37,可执行或数值诊断,已由稳定核心实现，或以有限分辨率数值类比形式检查。
+5.6,37,可执行或数值诊断,已由稳定核心实现，或以有限分辨率数值类比形式检查。
+5.7,38,仅证明链条,涉及精细化、鸽巢原理、存在性选择、归纳尺度或渐近比较；建立依赖记录但不伪造独立更新律。
+5.8,38,仅证明链条,涉及精细化、鸽巢原理、存在性选择、归纳尺度或渐近比较；建立依赖记录但不伪造独立更新律。
+5.9,38,仅证明链条,涉及精细化、鸽巢原理、存在性选择、归纳尺度或渐近比较；建立依赖记录但不伪造独立更新律。
+5.10,39,仅证明链条,涉及精细化、鸽巢原理、存在性选择、归纳尺度或渐近比较；建立依赖记录但不伪造独立更新律。
+5.11,39,仅证明链条,涉及精细化、鸽巢原理、存在性选择、归纳尺度或渐近比较；建立依赖记录但不伪造独立更新律。
+5.12,40,仅证明链条,涉及精细化、鸽巢原理、存在性选择、归纳尺度或渐近比较；建立依赖记录但不伪造独立更新律。
+5.13,41,仅证明链条,涉及精细化、鸽巢原理、存在性选择、归纳尺度或渐近比较；建立依赖记录但不伪造独立更新律。
+5.14,39,证明链条数值跟踪,保留为参数、覆盖、重数或尺度关系的诊断；不把隐含常数视为一。
+5.15,43,仅证明链条,涉及精细化、鸽巢原理、存在性选择、归纳尺度或渐近比较；建立依赖记录但不伪造独立更新律。
+5.16,44,仅证明链条,涉及精细化、鸽巢原理、存在性选择、归纳尺度或渐近比较；建立依赖记录但不伪造独立更新律。
+5.17,44,仅证明链条,涉及精细化、鸽巢原理、存在性选择、归纳尺度或渐近比较；建立依赖记录但不伪造独立更新律。
+5.18,44,仅证明链条,涉及精细化、鸽巢原理、存在性选择、归纳尺度或渐近比较；建立依赖记录但不伪造独立更新律。
+5.19,44,仅证明链条,涉及精细化、鸽巢原理、存在性选择、归纳尺度或渐近比较；建立依赖记录但不伪造独立更新律。
+5.20,45,仅证明链条,涉及精细化、鸽巢原理、存在性选择、归纳尺度或渐近比较；建立依赖记录但不伪造独立更新律。
+5.21,45,仅证明链条,涉及精细化、鸽巢原理、存在性选择、归纳尺度或渐近比较；建立依赖记录但不伪造独立更新律。
+5.22,45,仅证明链条,涉及精细化、鸽巢原理、存在性选择、归纳尺度或渐近比较；建立依赖记录但不伪造独立更新律。
+5.23,45,仅证明链条,涉及精细化、鸽巢原理、存在性选择、归纳尺度或渐近比较；建立依赖记录但不伪造独立更新律。
+5.24,46,仅证明链条,涉及精细化、鸽巢原理、存在性选择、归纳尺度或渐近比较；建立依赖记录但不伪造独立更新律。
+5.25,46,仅证明链条,涉及精细化、鸽巢原理、存在性选择、归纳尺度或渐近比较；建立依赖记录但不伪造独立更新律。
+5.26,46,仅证明链条,涉及精细化、鸽巢原理、存在性选择、归纳尺度或渐近比较；建立依赖记录但不伪造独立更新律。
+5.27,47,仅证明链条,涉及精细化、鸽巢原理、存在性选择、归纳尺度或渐近比较；建立依赖记录但不伪造独立更新律。
+5.28,47,仅证明链条,涉及精细化、鸽巢原理、存在性选择、归纳尺度或渐近比较；建立依赖记录但不伪造独立更新律。
+5.29,47,仅证明链条,涉及精细化、鸽巢原理、存在性选择、归纳尺度或渐近比较；建立依赖记录但不伪造独立更新律。
+5.30,47,仅证明链条,涉及精细化、鸽巢原理、存在性选择、归纳尺度或渐近比较；建立依赖记录但不伪造独立更新律。
+5.31,48,仅证明链条,涉及精细化、鸽巢原理、存在性选择、归纳尺度或渐近比较；建立依赖记录但不伪造独立更新律。
+5.32,48,仅证明链条,涉及精细化、鸽巢原理、存在性选择、归纳尺度或渐近比较；建立依赖记录但不伪造独立更新律。
+5.33,48,仅证明链条,涉及精细化、鸽巢原理、存在性选择、归纳尺度或渐近比较；建立依赖记录但不伪造独立更新律。
+5.34,49,仅证明链条,涉及精细化、鸽巢原理、存在性选择、归纳尺度或渐近比较；建立依赖记录但不伪造独立更新律。
+5.35,49,仅证明链条,涉及精细化、鸽巢原理、存在性选择、归纳尺度或渐近比较；建立依赖记录但不伪造独立更新律。
+5.36,49,仅证明链条,涉及精细化、鸽巢原理、存在性选择、归纳尺度或渐近比较；建立依赖记录但不伪造独立更新律。
+5.37,50,仅证明链条,涉及精细化、鸽巢原理、存在性选择、归纳尺度或渐近比较；建立依赖记录但不伪造独立更新律。
+5.38,50,仅证明链条,涉及精细化、鸽巢原理、存在性选择、归纳尺度或渐近比较；建立依赖记录但不伪造独立更新律。
+5.39,51,仅证明链条,涉及精细化、鸽巢原理、存在性选择、归纳尺度或渐近比较；建立依赖记录但不伪造独立更新律。
+6.1,51,仅证明链条,涉及精细化、鸽巢原理、存在性选择、归纳尺度或渐近比较；建立依赖记录但不伪造独立更新律。
+6.2,52,仅证明链条,涉及精细化、鸽巢原理、存在性选择、归纳尺度或渐近比较；建立依赖记录但不伪造独立更新律。
+6.3,53,仅证明链条,涉及精细化、鸽巢原理、存在性选择、归纳尺度或渐近比较；建立依赖记录但不伪造独立更新律。
+6.4,53,仅证明链条,涉及精细化、鸽巢原理、存在性选择、归纳尺度或渐近比较；建立依赖记录但不伪造独立更新律。
+6.5,53,仅证明链条,涉及精细化、鸽巢原理、存在性选择、归纳尺度或渐近比较；建立依赖记录但不伪造独立更新律。
+6.6,53,仅证明链条,涉及精细化、鸽巢原理、存在性选择、归纳尺度或渐近比较；建立依赖记录但不伪造独立更新律。
+6.7,53,仅证明链条,涉及精细化、鸽巢原理、存在性选择、归纳尺度或渐近比较；建立依赖记录但不伪造独立更新律。
+6.8,54,仅证明链条,涉及精细化、鸽巢原理、存在性选择、归纳尺度或渐近比较；建立依赖记录但不伪造独立更新律。
+6.9,54,仅证明链条,涉及精细化、鸽巢原理、存在性选择、归纳尺度或渐近比较；建立依赖记录但不伪造独立更新律。
+6.10,54,仅证明链条,涉及精细化、鸽巢原理、存在性选择、归纳尺度或渐近比较；建立依赖记录但不伪造独立更新律。
+6.11,55,仅证明链条,涉及精细化、鸽巢原理、存在性选择、归纳尺度或渐近比较；建立依赖记录但不伪造独立更新律。
+6.12,55,仅证明链条,涉及精细化、鸽巢原理、存在性选择、归纳尺度或渐近比较；建立依赖记录但不伪造独立更新律。
+6.13,55,仅证明链条,涉及精细化、鸽巢原理、存在性选择、归纳尺度或渐近比较；建立依赖记录但不伪造独立更新律。
+6.14,55,仅证明链条,涉及精细化、鸽巢原理、存在性选择、归纳尺度或渐近比较；建立依赖记录但不伪造独立更新律。
+6.15,56,仅证明链条,涉及精细化、鸽巢原理、存在性选择、归纳尺度或渐近比较；建立依赖记录但不伪造独立更新律。
+6.16,56,仅证明链条,涉及精细化、鸽巢原理、存在性选择、归纳尺度或渐近比较；建立依赖记录但不伪造独立更新律。
+6.17,56,仅证明链条,涉及精细化、鸽巢原理、存在性选择、归纳尺度或渐近比较；建立依赖记录但不伪造独立更新律。
+6.18,57,仅证明链条,涉及精细化、鸽巢原理、存在性选择、归纳尺度或渐近比较；建立依赖记录但不伪造独立更新律。
+6.19,57,仅证明链条,涉及精细化、鸽巢原理、存在性选择、归纳尺度或渐近比较；建立依赖记录但不伪造独立更新律。
+6.20,57,仅证明链条,涉及精细化、鸽巢原理、存在性选择、归纳尺度或渐近比较；建立依赖记录但不伪造独立更新律。
+6.21,58,仅证明链条,涉及精细化、鸽巢原理、存在性选择、归纳尺度或渐近比较；建立依赖记录但不伪造独立更新律。
+6.22,58,仅证明链条,涉及精细化、鸽巢原理、存在性选择、归纳尺度或渐近比较；建立依赖记录但不伪造独立更新律。
+6.23,58,仅证明链条,涉及精细化、鸽巢原理、存在性选择、归纳尺度或渐近比较；建立依赖记录但不伪造独立更新律。
+6.24,58,仅证明链条,涉及精细化、鸽巢原理、存在性选择、归纳尺度或渐近比较；建立依赖记录但不伪造独立更新律。
+6.25,58,仅证明链条,涉及精细化、鸽巢原理、存在性选择、归纳尺度或渐近比较；建立依赖记录但不伪造独立更新律。
+6.26,59,仅证明链条,涉及精细化、鸽巢原理、存在性选择、归纳尺度或渐近比较；建立依赖记录但不伪造独立更新律。
+6.27,59,仅证明链条,涉及精细化、鸽巢原理、存在性选择、归纳尺度或渐近比较；建立依赖记录但不伪造独立更新律。
+6.28,59,仅证明链条,涉及精细化、鸽巢原理、存在性选择、归纳尺度或渐近比较；建立依赖记录但不伪造独立更新律。
+6.29,59,仅证明链条,涉及精细化、鸽巢原理、存在性选择、归纳尺度或渐近比较；建立依赖记录但不伪造独立更新律。
+6.30,59,仅证明链条,涉及精细化、鸽巢原理、存在性选择、归纳尺度或渐近比较；建立依赖记录但不伪造独立更新律。
+7.1,61,仅证明链条,涉及精细化、鸽巢原理、存在性选择、归纳尺度或渐近比较；建立依赖记录但不伪造独立更新律。
+7.2,62,可执行或数值诊断,已由稳定核心实现，或以有限分辨率数值类比形式检查。
+7.3,63,可执行或数值诊断,已由稳定核心实现，或以有限分辨率数值类比形式检查。
+7.4,63,可执行或数值诊断,已由稳定核心实现，或以有限分辨率数值类比形式检查。
+7.5,65,可执行或数值诊断,已由稳定核心实现，或以有限分辨率数值类比形式检查。
+7.6,66,证明链条数值跟踪,保留为参数、覆盖、重数或尺度关系的诊断；不把隐含常数视为一。
+7.7,68,证明链条数值跟踪,保留为参数、覆盖、重数或尺度关系的诊断；不把隐含常数视为一。
+7.8,68,证明链条数值跟踪,保留为参数、覆盖、重数或尺度关系的诊断；不把隐含常数视为一。
+7.9,68,证明链条数值跟踪,保留为参数、覆盖、重数或尺度关系的诊断；不把隐含常数视为一。
+7.10,68,证明链条数值跟踪,保留为参数、覆盖、重数或尺度关系的诊断；不把隐含常数视为一。
+7.11,68,证明链条数值跟踪,保留为参数、覆盖、重数或尺度关系的诊断；不把隐含常数视为一。
+7.12,68,证明链条数值跟踪,保留为参数、覆盖、重数或尺度关系的诊断；不把隐含常数视为一。
+7.13,68,证明链条数值跟踪,保留为参数、覆盖、重数或尺度关系的诊断；不把隐含常数视为一。
+7.14,70,证明链条数值跟踪,保留为参数、覆盖、重数或尺度关系的诊断；不把隐含常数视为一。
+7.15,71,证明链条数值跟踪,保留为参数、覆盖、重数或尺度关系的诊断；不把隐含常数视为一。
+8.1,74,仅证明链条,涉及精细化、鸽巢原理、存在性选择、归纳尺度或渐近比较；建立依赖记录但不伪造独立更新律。
+8.2,75,仅证明链条,涉及精细化、鸽巢原理、存在性选择、归纳尺度或渐近比较；建立依赖记录但不伪造独立更新律。
+8.3,75,仅证明链条,涉及精细化、鸽巢原理、存在性选择、归纳尺度或渐近比较；建立依赖记录但不伪造独立更新律。
+8.4,76,仅证明链条,涉及精细化、鸽巢原理、存在性选择、归纳尺度或渐近比较；建立依赖记录但不伪造独立更新律。
+8.5,76,仅证明链条,涉及精细化、鸽巢原理、存在性选择、归纳尺度或渐近比较；建立依赖记录但不伪造独立更新律。
+8.6,76,仅证明链条,涉及精细化、鸽巢原理、存在性选择、归纳尺度或渐近比较；建立依赖记录但不伪造独立更新律。
+8.7,77,仅证明链条,涉及精细化、鸽巢原理、存在性选择、归纳尺度或渐近比较；建立依赖记录但不伪造独立更新律。
+8.8,78,仅证明链条,涉及精细化、鸽巢原理、存在性选择、归纳尺度或渐近比较；建立依赖记录但不伪造独立更新律。
+8.9,78,仅证明链条,涉及精细化、鸽巢原理、存在性选择、归纳尺度或渐近比较；建立依赖记录但不伪造独立更新律。
+8.10,78,仅证明链条,涉及精细化、鸽巢原理、存在性选择、归纳尺度或渐近比较；建立依赖记录但不伪造独立更新律。
+8.11,79,仅证明链条,涉及精细化、鸽巢原理、存在性选择、归纳尺度或渐近比较；建立依赖记录但不伪造独立更新律。
+8.12,81,仅证明链条,涉及精细化、鸽巢原理、存在性选择、归纳尺度或渐近比较；建立依赖记录但不伪造独立更新律。
+8.13,82,仅证明链条,涉及精细化、鸽巢原理、存在性选择、归纳尺度或渐近比较；建立依赖记录但不伪造独立更新律。
+8.14,82,仅证明链条,涉及精细化、鸽巢原理、存在性选择、归纳尺度或渐近比较；建立依赖记录但不伪造独立更新律。
+8.15,83,仅证明链条,涉及精细化、鸽巢原理、存在性选择、归纳尺度或渐近比较；建立依赖记录但不伪造独立更新律。
+8.16,83,仅证明链条,涉及精细化、鸽巢原理、存在性选择、归纳尺度或渐近比较；建立依赖记录但不伪造独立更新律。
+8.17,83,仅证明链条,涉及精细化、鸽巢原理、存在性选择、归纳尺度或渐近比较；建立依赖记录但不伪造独立更新律。
+8.18,84,仅证明链条,涉及精细化、鸽巢原理、存在性选择、归纳尺度或渐近比较；建立依赖记录但不伪造独立更新律。
+8.19,84,仅证明链条,涉及精细化、鸽巢原理、存在性选择、归纳尺度或渐近比较；建立依赖记录但不伪造独立更新律。
+8.20,85,仅证明链条,涉及精细化、鸽巢原理、存在性选择、归纳尺度或渐近比较；建立依赖记录但不伪造独立更新律。
+8.21,85,仅证明链条,涉及精细化、鸽巢原理、存在性选择、归纳尺度或渐近比较；建立依赖记录但不伪造独立更新律。
+8.22,85,仅证明链条,涉及精细化、鸽巢原理、存在性选择、归纳尺度或渐近比较；建立依赖记录但不伪造独立更新律。
+8.23,86,仅证明链条,涉及精细化、鸽巢原理、存在性选择、归纳尺度或渐近比较；建立依赖记录但不伪造独立更新律。
+8.24,86,仅证明链条,涉及精细化、鸽巢原理、存在性选择、归纳尺度或渐近比较；建立依赖记录但不伪造独立更新律。
+8.25,86,仅证明链条,涉及精细化、鸽巢原理、存在性选择、归纳尺度或渐近比较；建立依赖记录但不伪造独立更新律。
+8.26,87,仅证明链条,涉及精细化、鸽巢原理、存在性选择、归纳尺度或渐近比较；建立依赖记录但不伪造独立更新律。
+8.27,87,仅证明链条,涉及精细化、鸽巢原理、存在性选择、归纳尺度或渐近比较；建立依赖记录但不伪造独立更新律。
+8.28,87,仅证明链条,涉及精细化、鸽巢原理、存在性选择、归纳尺度或渐近比较；建立依赖记录但不伪造独立更新律。
+8.29,88,仅证明链条,涉及精细化、鸽巢原理、存在性选择、归纳尺度或渐近比较；建立依赖记录但不伪造独立更新律。
+8.30,88,仅证明链条,涉及精细化、鸽巢原理、存在性选择、归纳尺度或渐近比较；建立依赖记录但不伪造独立更新律。
+8.31,89,仅证明链条,涉及精细化、鸽巢原理、存在性选择、归纳尺度或渐近比较；建立依赖记录但不伪造独立更新律。
+8.32,89,仅证明链条,涉及精细化、鸽巢原理、存在性选择、归纳尺度或渐近比较；建立依赖记录但不伪造独立更新律。
+8.33,90,仅证明链条,涉及精细化、鸽巢原理、存在性选择、归纳尺度或渐近比较；建立依赖记录但不伪造独立更新律。
+8.34,90,仅证明链条,涉及精细化、鸽巢原理、存在性选择、归纳尺度或渐近比较；建立依赖记录但不伪造独立更新律。
+8.35,90,仅证明链条,涉及精细化、鸽巢原理、存在性选择、归纳尺度或渐近比较；建立依赖记录但不伪造独立更新律。
+8.36,90,仅证明链条,涉及精细化、鸽巢原理、存在性选择、归纳尺度或渐近比较；建立依赖记录但不伪造独立更新律。
+8.37,90,仅证明链条,涉及精细化、鸽巢原理、存在性选择、归纳尺度或渐近比较；建立依赖记录但不伪造独立更新律。
+8.38,90,仅证明链条,涉及精细化、鸽巢原理、存在性选择、归纳尺度或渐近比较；建立依赖记录但不伪造独立更新律。
+8.39,91,仅证明链条,涉及精细化、鸽巢原理、存在性选择、归纳尺度或渐近比较；建立依赖记录但不伪造独立更新律。
+8.40,91,仅证明链条,涉及精细化、鸽巢原理、存在性选择、归纳尺度或渐近比较；建立依赖记录但不伪造独立更新律。
+8.41,91,仅证明链条,涉及精细化、鸽巢原理、存在性选择、归纳尺度或渐近比较；建立依赖记录但不伪造独立更新律。
+8.42,91,仅证明链条,涉及精细化、鸽巢原理、存在性选择、归纳尺度或渐近比较；建立依赖记录但不伪造独立更新律。
+8.43,91,仅证明链条,涉及精细化、鸽巢原理、存在性选择、归纳尺度或渐近比较；建立依赖记录但不伪造独立更新律。
+8.44,91,仅证明链条,涉及精细化、鸽巢原理、存在性选择、归纳尺度或渐近比较；建立依赖记录但不伪造独立更新律。
+8.45,91,仅证明链条,涉及精细化、鸽巢原理、存在性选择、归纳尺度或渐近比较；建立依赖记录但不伪造独立更新律。
+8.46,92,仅证明链条,涉及精细化、鸽巢原理、存在性选择、归纳尺度或渐近比较；建立依赖记录但不伪造独立更新律。
+8.47,92,仅证明链条,涉及精细化、鸽巢原理、存在性选择、归纳尺度或渐近比较；建立依赖记录但不伪造独立更新律。
+8.48,92,仅证明链条,涉及精细化、鸽巢原理、存在性选择、归纳尺度或渐近比较；建立依赖记录但不伪造独立更新律。
+8.49,92,仅证明链条,涉及精细化、鸽巢原理、存在性选择、归纳尺度或渐近比较；建立依赖记录但不伪造独立更新律。
+8.50,92,仅证明链条,涉及精细化、鸽巢原理、存在性选择、归纳尺度或渐近比较；建立依赖记录但不伪造独立更新律。
+8.51,92,仅证明链条,涉及精细化、鸽巢原理、存在性选择、归纳尺度或渐近比较；建立依赖记录但不伪造独立更新律。
+8.52,93,仅证明链条,涉及精细化、鸽巢原理、存在性选择、归纳尺度或渐近比较；建立依赖记录但不伪造独立更新律。
+8.53,93,仅证明链条,涉及精细化、鸽巢原理、存在性选择、归纳尺度或渐近比较；建立依赖记录但不伪造独立更新律。
+8.54,94,仅证明链条,涉及精细化、鸽巢原理、存在性选择、归纳尺度或渐近比较；建立依赖记录但不伪造独立更新律。
+8.55,94,仅证明链条,涉及精细化、鸽巢原理、存在性选择、归纳尺度或渐近比较；建立依赖记录但不伪造独立更新律。
+8.56,94,仅证明链条,涉及精细化、鸽巢原理、存在性选择、归纳尺度或渐近比较；建立依赖记录但不伪造独立更新律。
+8.57,94,仅证明链条,涉及精细化、鸽巢原理、存在性选择、归纳尺度或渐近比较；建立依赖记录但不伪造独立更新律。
+8.58,94,仅证明链条,涉及精细化、鸽巢原理、存在性选择、归纳尺度或渐近比较；建立依赖记录但不伪造独立更新律。
+8.59,94,仅证明链条,涉及精细化、鸽巢原理、存在性选择、归纳尺度或渐近比较；建立依赖记录但不伪造独立更新律。
+8.60,95,仅证明链条,涉及精细化、鸽巢原理、存在性选择、归纳尺度或渐近比较；建立依赖记录但不伪造独立更新律。
+8.61,95,仅证明链条,涉及精细化、鸽巢原理、存在性选择、归纳尺度或渐近比较；建立依赖记录但不伪造独立更新律。
+8.62,95,仅证明链条,涉及精细化、鸽巢原理、存在性选择、归纳尺度或渐近比较；建立依赖记录但不伪造独立更新律。
+8.63,96,仅证明链条,涉及精细化、鸽巢原理、存在性选择、归纳尺度或渐近比较；建立依赖记录但不伪造独立更新律。
+8.64,96,仅证明链条,涉及精细化、鸽巢原理、存在性选择、归纳尺度或渐近比较；建立依赖记录但不伪造独立更新律。
+8.65,96,仅证明链条,涉及精细化、鸽巢原理、存在性选择、归纳尺度或渐近比较；建立依赖记录但不伪造独立更新律。
+8.66,97,仅证明链条,涉及精细化、鸽巢原理、存在性选择、归纳尺度或渐近比较；建立依赖记录但不伪造独立更新律。
+8.67,98,仅证明链条,涉及精细化、鸽巢原理、存在性选择、归纳尺度或渐近比较；建立依赖记录但不伪造独立更新律。
+9.1,100,可执行或数值诊断,已由稳定核心实现，或以有限分辨率数值类比形式检查。
+9.2,101,证明链条数值跟踪,保留为参数、覆盖、重数或尺度关系的诊断；不把隐含常数视为一。
+9.3,101,证明链条数值跟踪,保留为参数、覆盖、重数或尺度关系的诊断；不把隐含常数视为一。
+9.4,101,证明链条数值跟踪,保留为参数、覆盖、重数或尺度关系的诊断；不把隐含常数视为一。
+9.5,101,证明链条数值跟踪,保留为参数、覆盖、重数或尺度关系的诊断；不把隐含常数视为一。
+9.6,101,证明链条数值跟踪,保留为参数、覆盖、重数或尺度关系的诊断；不把隐含常数视为一。
+9.7,102,证明链条数值跟踪,保留为参数、覆盖、重数或尺度关系的诊断；不把隐含常数视为一。
+9.8,103,证明链条数值跟踪,保留为参数、覆盖、重数或尺度关系的诊断；不把隐含常数视为一。
+9.9,103,证明链条数值跟踪,保留为参数、覆盖、重数或尺度关系的诊断；不把隐含常数视为一。
+9.10,103,证明链条数值跟踪,保留为参数、覆盖、重数或尺度关系的诊断；不把隐含常数视为一。
+10.1,104,可执行或数值诊断,已由稳定核心实现，或以有限分辨率数值类比形式检查。
+10.2,105,证明链条数值跟踪,保留为参数、覆盖、重数或尺度关系的诊断；不把隐含常数视为一。
+10.3,105,证明链条数值跟踪,保留为参数、覆盖、重数或尺度关系的诊断；不把隐含常数视为一。
+10.4,106,证明链条数值跟踪,保留为参数、覆盖、重数或尺度关系的诊断；不把隐含常数视为一。
+10.5,106,证明链条数值跟踪,保留为参数、覆盖、重数或尺度关系的诊断；不把隐含常数视为一。
+10.6,106,证明链条数值跟踪,保留为参数、覆盖、重数或尺度关系的诊断；不把隐含常数视为一。
+10.7,106,证明链条数值跟踪,保留为参数、覆盖、重数或尺度关系的诊断；不把隐含常数视为一。
+10.8,106,证明链条数值跟踪,保留为参数、覆盖、重数或尺度关系的诊断；不把隐含常数视为一。
+10.9,106,证明链条数值跟踪,保留为参数、覆盖、重数或尺度关系的诊断；不把隐含常数视为一。
+10.10,106,证明链条数值跟踪,保留为参数、覆盖、重数或尺度关系的诊断；不把隐含常数视为一。
+10.11,106,证明链条数值跟踪,保留为参数、覆盖、重数或尺度关系的诊断；不把隐含常数视为一。
+10.12,107,证明链条数值跟踪,保留为参数、覆盖、重数或尺度关系的诊断；不把隐含常数视为一。
+10.13,107,证明链条数值跟踪,保留为参数、覆盖、重数或尺度关系的诊断；不把隐含常数视为一。
+10.14,108,证明链条数值跟踪,保留为参数、覆盖、重数或尺度关系的诊断；不把隐含常数视为一。
+10.15,108,证明链条数值跟踪,保留为参数、覆盖、重数或尺度关系的诊断；不把隐含常数视为一。
+10.16,109,证明链条数值跟踪,保留为参数、覆盖、重数或尺度关系的诊断；不把隐含常数视为一。
+10.17,109,证明链条数值跟踪,保留为参数、覆盖、重数或尺度关系的诊断；不把隐含常数视为一。
+10.18,109,证明链条数值跟踪,保留为参数、覆盖、重数或尺度关系的诊断；不把隐含常数视为一。
+10.19,109,证明链条数值跟踪,保留为参数、覆盖、重数或尺度关系的诊断；不把隐含常数视为一。
+10.20,110,证明链条数值跟踪,保留为参数、覆盖、重数或尺度关系的诊断；不把隐含常数视为一。
+11.1,111,可执行或数值诊断,已由稳定核心实现，或以有限分辨率数值类比形式检查。
+11.2,112,证明链条数值跟踪,保留为参数、覆盖、重数或尺度关系的诊断；不把隐含常数视为一。
+11.3,112,证明链条数值跟踪,保留为参数、覆盖、重数或尺度关系的诊断；不把隐含常数视为一。
+11.4,112,证明链条数值跟踪,保留为参数、覆盖、重数或尺度关系的诊断；不把隐含常数视为一。
+11.5,112,证明链条数值跟踪,保留为参数、覆盖、重数或尺度关系的诊断；不把隐含常数视为一。
+11.6,114,证明链条数值跟踪,保留为参数、覆盖、重数或尺度关系的诊断；不把隐含常数视为一。
+12.1,114,可执行或数值诊断,已由稳定核心实现，或以有限分辨率数值类比形式检查。
+12.2,114,证明链条数值跟踪,保留为参数、覆盖、重数或尺度关系的诊断；不把隐含常数视为一。
+12.3,115,证明链条数值跟踪,保留为参数、覆盖、重数或尺度关系的诊断；不把隐含常数视为一。
+12.4,115,证明链条数值跟踪,保留为参数、覆盖、重数或尺度关系的诊断；不把隐含常数视为一。
+12.5,115,证明链条数值跟踪,保留为参数、覆盖、重数或尺度关系的诊断；不把隐含常数视为一。
+12.6,115,证明链条数值跟踪,保留为参数、覆盖、重数或尺度关系的诊断；不把隐含常数视为一。
+12.7,115,证明链条数值跟踪,保留为参数、覆盖、重数或尺度关系的诊断；不把隐含常数视为一。

@@ -1,0 +1,132 @@
+{
+  "metadata": {
+    "generated_at": "2026-07-26T03:59:01.611527+00:00",
+    "seed": 250217655,
+    "mode": "mixed",
+    "resolution": 24,
+    "learned_parameters": {
+      "mode": "mixed",
+      "tubes": 24,
+      "delta": 0.06,
+      "rho": 0.25,
+      "lambda_density": 0.72,
+      "resolution": 24,
+      "epsilon": 0.05,
+      "k_power": 3.0,
+      "kappa": 0.1,
+      "sigma": 0.5,
+      "omega": 0.1,
+      "alpha": 0.03,
+      "zeta": 0.01,
+      "dilation_r": 2.0
+    },
+    "paper": "Volume estimates for unions of convex sets, and the Kakeya set conjecture in three dimensions",
+    "authors": "Hong Wang and Joshua Zahl",
+    "arxiv": "2502.17655v1"
+  },
+  "parameters": {
+    "epsilon": 0.05,
+    "k_power": 3.0,
+    "kappa": 0.1,
+    "sigma": 0.5,
+    "omega": 0.1,
+    "alpha": 0.03,
+    "zeta": 0.01,
+    "rho": 0.25,
+    "dilation_r": 2.0
+  },
+  "geometry": {
+    "tube_count": 24,
+    "paper_single_tube_volume": 0.0036,
+    "capsule_single_tube_volume": 0.012214512237157115,
+    "sum_paper_tube_volume": 0.0864,
+    "mean_shading_fraction": 0.7316666666666668
+  },
+  "voxel": {
+    "spacing": 0.08750000000000001,
+    "union_volume": 0.20566601562500006,
+    "shaded_union_volume": 0.13398437500000004,
+    "average_multiplicity": 1.3322475570032573,
+    "median_multiplicity": 1.0,
+    "maximum_multiplicity": 8,
+    "multiplicity_histogram": {
+      "1": 243,
+      "2": 44,
+      "3": 9,
+      "4": 8,
+      "5": 1,
+      "6": 1,
+      "8": 1
+    }
+  },
+  "wolff": {
+    "katz_tao_convex": 1.0,
+    "frostman_slab": 0.20266074451763855,
+    "prism_nonclustering_ratio": 0.0008065487614282717
+  },
+  "multiscale": {
+    "group_count": 16,
+    "group_sizes": [
+      1,
+      1,
+      1,
+      2,
+      1,
+      5,
+      1,
+      2,
+      1,
+      1,
+      2,
+      1,
+      1,
+      2,
+      1,
+      1
+    ],
+    "inferred_nu": 1.014509788520059,
+    "mu": 1.0,
+    "mu_fine": 1.0,
+    "mu_coarse": 1.0,
+    "product_ratio": 1.0,
+    "grain_c": 1.0,
+    "grain_dimensions_rescaled": [
+      0.24,
+      1.0,
+      1.0
+    ],
+    "grain_dimensions_original": [
+      0.06,
+      0.25,
+      1.0
+    ],
+    "broadness": [
+      {
+        "radius": 0.06,
+        "maximum_fraction": 0.5,
+        "beta": 1e-05,
+        "error_k": 0.5000140672514677
+      },
+      {
+        "radius": 0.2449489742783178,
+        "maximum_fraction": 1.0,
+        "beta": 1e-05,
+        "error_k": 1.0000140671525253
+      },
+      {
+        "radius": 0.25,
+        "maximum_fraction": 1.0,
+        "beta": 1e-05,
+        "error_k": 1.0000138630397022
+      },
+      {
+        "radius": 1.0,
+        "maximum_fraction": 1.0,
+        "beta": 1e-05,
+        "error_k": 1.0
+      }
+    ],
+    "local_density_tau": 0.1224744871391589,
+    "local_density_fraction": 0.5714285714285714
+  }
+}

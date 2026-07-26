@@ -3,21 +3,27 @@ requires = ["setuptools>=68", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "kakeya-3d-simulator"
-version = "0.1.0"
-description = "A numerical 3D companion to Wang-Zahl's Kakeya tube-volume estimates."
+name = "xuexi-kakeya-agent"
+version = "2.0.0"
+description = "基于本地代码模型的三维 Kakeya 数值研究与自我审查代理。"
 readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [
   "numpy>=2.0",
   "plotly>=6.0",
+  "matplotlib>=3.9",
+  "pillow>=10.0",
+  "PyYAML>=6.0",
+  "PyMuPDF>=1.24",
 ]
 
 [project.optional-dependencies]
 dev = ["pytest>=8.0"]
+research = ["huggingface_hub>=0.30"]
 
 [project.scripts]
 kakeya-sim = "kakeya_sim.cli:main"
+xuexi-agent = "xuexi_agent.cli:main"
 
 [tool.setuptools]
 package-dir = {"" = "src"}

@@ -1,0 +1,42 @@
+agent:
+  language: zh-CN
+  rounds_per_run: 2
+  equation_batch_size: 8
+  max_repository_characters: 55000
+  max_paper_characters: 32000
+  accept_equal_score: false
+  minimum_score_gain: 0.25
+  generated_file_limit_bytes: 120000
+
+model:
+  repository: Qwen/Qwen2.5-Coder-3B-Instruct-GGUF
+  filename: qwen2.5-coder-3b-instruct-q4_k_m.gguf
+  context_size: 8192
+  max_output_tokens: 4096
+  temperature: 0.12
+  top_p: 0.9
+  seed: 20250224
+
+simulation:
+  default_mode: mixed
+  default_tubes: 48
+  delta: 0.055
+  rho: 0.24
+  lambda_density: 0.72
+  resolution: 40
+  frames: 60
+  fps: 15
+  benchmark_seeds: [250217655, 250217656, 250217657]
+
+safety:
+  writable_paths:
+    - src/xuexi_agent/generated/strategy.py
+    - src/xuexi_agent/generated/equation_extensions.py
+    - docs/AI_RESEARCH_NOTE.md
+    - docs/EQUATION_COVERAGE.md
+    - README.md
+  allowed_import_roots:
+    - math
+    - dataclasses
+    - typing
+    - numpy

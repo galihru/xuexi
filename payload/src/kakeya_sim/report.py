@@ -1,7 +1,6 @@
 from __future__ import annotations
 
 from dataclasses import asdict
-from datetime import datetime, timezone
 from pathlib import Path
 import csv
 import json
@@ -19,9 +18,9 @@ def write_tubes_csv(path: Path, tubes: list[Tube]) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     with path.open("w", newline="", encoding="utf-8") as handle:
         writer = csv.writer(handle)
-        writer.writerow(["id", "group", "cx", "cy", "cz", "dx", "dy", "dz", "delta", "shade_start", "shade_end"])
-        for i, t in enumerate(tubes):
-            writer.writerow([i, t.group, *t.center.tolist(), *t.direction.tolist(), t.radius, t.shade_start, t.shade_end])
+        writer.writerow(["编号", "分组", "中心_x", "中心_y", "中心_z", "方向_x", "方向_y", "方向_z", "delta", "着色起点", "着色终点"])
+        for i, tube in enumerate(tubes):
+            writer.writerow([i, tube.group, *tube.center.tolist(), *tube.direction.tolist(), tube.radius, tube.shade_start, tube.shade_end])
 
 
 def write_formula_csv(path: Path, checks: list[FormulaCheck]) -> None:
@@ -51,7 +50,7 @@ def write_metrics_json(
     metadata: dict,
 ) -> dict:
     occupied = voxel.multiplicity > 0
-    histogram = {str(int(k)): int(v) for k, v in zip(*np.unique(voxel.multiplicity[occupied], return_counts=True))}
+    histogram = {str(int(key)): int(value) for key, value in zip(*np.unique(voxel.multiplicity[occupied], return_counts=True))}
     data = {
         "metadata": metadata,
         "parameters": asdict(parameters),
@@ -60,7 +59,7 @@ def write_metrics_json(
             "paper_single_tube_volume": tubes[0].paper_volume,
             "capsule_single_tube_volume": tubes[0].capsule_volume,
             "sum_paper_tube_volume": len(tubes) * tubes[0].paper_volume,
-            "mean_shading_fraction": float(np.mean([t.shading_fraction for t in tubes])),
+            "mean_shading_fraction": float(np.mean([tube.shading_fraction for tube in tubes])),
         },
         "voxel": {
             "spacing": voxel.spacing,
@@ -88,42 +87,50 @@ def write_random_log(path: Path, data: dict, checks: list[FormulaCheck], tubes: 
     wolff = data["wolff"]
     multi = data["multiscale"]
     lines = [
-        "# Random Numerical Run Log",
+        "# 随机数值实验记录",
         "",
-        f"- UTC generation time: `{meta['generated_at']}`",
-        f"- Seed: `{meta['seed']}`",
-        f"- Mode: `{meta['mode']}`",
-        f"- Tubes: `{len(tubes)}`",
-        f"- Voxel resolution: `{meta['resolution']}^3`",
+        f"- UTC 生成时间：`{meta['generated_at']}`",
+        f"- 随机种子：`{meta['seed']}`",
+        f"- 排列模式：`{meta['mode']}`",
+        f"- 管数量：`{len(tubes)}`",
+        f"- 体素分辨率：`{meta['resolution']}^3`",
         "",
-        "## Main numerical observations",
+        "## 主要数值观察",
         "",
-        f"- Voxelized union volume: `{voxel['union_volume']:.10f}`",
-        f"- Voxelized shaded union volume: `{voxel['shaded_union_volume']:.10f}`",
-        f"- Median multiplicity: `{voxel['median_multiplicity']:.6f}`",
-        f"- Maximum multiplicity: `{voxel['maximum_multiplicity']}`",
-        f"- Sampled Katz-Tao convex Wolff constant: `{wolff['katz_tao_convex']:.8f}`",
-        f"- Sampled Frostman slab Wolff constant: `{wolff['frostman_slab']:.8f}`",
-        f"- Worst rectangular-prism hypothesis ratio: `{wolff['prism_nonclustering_ratio']:.8f}`",
-        f"- Coarse group count: `{multi['group_count']}`",
-        f"- Grain width c: `{multi['grain_c']:.8f}`",
+        f"- 并集体积估计：`{voxel['union_volume']:.10f}`",
+        f"- 着色并集体积估计：`{voxel['shaded_union_volume']:.10f}`",
+        f"- 中位重数：`{voxel['median_multiplicity']:.6f}`",
+        f"- 最大重数：`{voxel['maximum_multiplicity']}`",
+        f"- Katz–Tao 凸 Wolff 常数采样估计：`{wolff['katz_tao_convex']:.8f}`",
+        f"- Frostman 板 Wolff 常数采样估计：`{wolff['frostman_slab']:.8f}`",
+        f"- 长方体非聚集最坏比值：`{wolff['prism_nonclustering_ratio']:.8f}`",
+        f"- 粗尺度分组数：`{multi['group_count']}`",
+        f"- grain 宽度 c：`{multi['grain_c']:.8f}`",
         "",
-        "## First random tubes",
+        "## 前十二个随机管",
         "",
-        "| Tube | Group | Center | Direction | Shading interval |",
+        "| 管 | 分组 | 中心 | 方向 | 着色区间 |",
         "|---:|---:|---|---|---|",
     ]
-    for i, t in enumerate(tubes[:12]):
-        center = ", ".join(f"{x:.5f}" for x in t.center)
-        direction = ", ".join(f"{x:.5f}" for x in t.direction)
-        lines.append(f"| {i} | {t.group} | ({center}) | ({direction}) | [{t.shade_start:.5f}, {t.shade_end:.5f}] |")
-    lines.extend(["", "## Formula diagnostics", "", "These checks are finite-resolution numerical diagnostics, not proofs of asymptotic theorems.", "", "| Equation | Status | Observed | Reference | Ratio | Result |", "|---|---|---:|---:|---:|---|"])
-    for c in checks:
-        if c.observed is None:
+    for i, tube in enumerate(tubes[:12]):
+        center = ", ".join(f"{value:.5f}" for value in tube.center)
+        direction = ", ".join(f"{value:.5f}" for value in tube.direction)
+        lines.append(f"| {i} | {tube.group} | ({center}) | ({direction}) | [{tube.shade_start:.5f}, {tube.shade_end:.5f}] |")
+    lines.extend([
+        "",
+        "## 公式诊断",
+        "",
+        "> 下列结果是有限分辨率数值诊断，不构成对渐近定理的证明。",
+        "",
+        "| 公式 | 类型 | 观测值 | 参考值 | 比值 | 结果 |",
+        "|---|---|---:|---:|---:|---|",
+    ])
+    for check in checks:
+        if check.observed is None:
             continue
-        observed = f"{c.observed:.8g}"
-        reference = "" if c.reference is None else f"{c.reference:.8g}"
-        ratio = "" if c.ratio is None else f"{c.ratio:.8g}"
-        result = "N/A" if c.passed is None else ("PASS" if c.passed else "FAIL")
-        lines.append(f"| {c.label} | {c.status} | {observed} | {reference} | {ratio} | {result} |")
+        observed = f"{check.observed:.8g}"
+        reference = "" if check.reference is None else f"{check.reference:.8g}"
+        ratio = "" if check.ratio is None else f"{check.ratio:.8g}"
+        result = "不适用" if check.passed is None else ("通过" if check.passed else "未通过")
+        lines.append(f"| {check.label} | {check.status} | {observed} | {reference} | {ratio} | {result} |")
     path.write_text("\n".join(lines) + "\n", encoding="utf-8")

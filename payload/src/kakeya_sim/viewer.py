@@ -45,9 +45,9 @@ def create_viewer(tubes: list[Tube], voxel: VoxelResult, output: Path, seed: int
                 color=palette[tube.group % len(palette)],
                 opacity=0.22,
                 flatshading=True,
-                name=f"Tube {idx} / group {tube.group}",
+                name=f"管 {idx} / 分组 {tube.group}",
                 hovertemplate=(
-                    f"tube={idx}<br>group={tube.group}<br>"
+                    f"管={idx}<br>分组={tube.group}<br>"
                     f"center=({tube.center[0]:.3f},{tube.center[1]:.3f},{tube.center[2]:.3f})"
                     "<extra></extra>"
                 ),
@@ -65,13 +65,13 @@ def create_viewer(tubes: list[Tube], voxel: VoxelResult, output: Path, seed: int
         go.Scatter3d(
             x=points[:, 0], y=points[:, 1], z=points[:, 2],
             mode="markers",
-            marker=dict(size=2.2, color=mult, colorscale="Turbo", opacity=0.6, colorbar=dict(title="Multiplicity")),
-            name="Voxelized union",
-            hovertemplate="x=%{x:.3f}<br>y=%{y:.3f}<br>z=%{z:.3f}<br>multiplicity=%{marker.color}<extra></extra>",
+            marker=dict(size=2.2, color=mult, colorscale="Turbo", opacity=0.6, colorbar=dict(title="重数")),
+            name="体素化并集",
+            hovertemplate="x=%{x:.3f}<br>y=%{y:.3f}<br>z=%{z:.3f}<br>重数=%{marker.color}<extra></extra>",
         )
     )
     fig.update_layout(
-        title="Kakeya 3D Tube Simulation",
+        title="三维 Kakeya δ-管数值模拟",
         scene=dict(
             xaxis_title="x", yaxis_title="y", zaxis_title="z",
             aspectmode="cube",

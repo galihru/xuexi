@@ -14,7 +14,7 @@ def separated_directions(
     minimum_angle: float,
     max_attempts: int = 200_000,
 ) -> list[np.ndarray]:
-    """Greedily construct approximately delta-separated unoriented directions."""
+    """贪心构造近似 δ-分离的无向方向。"""
     directions: list[np.ndarray] = []
     attempts = 0
     while len(directions) < count and attempts < max_attempts:
@@ -94,7 +94,7 @@ def generate_nonsticky(
     rho: float,
     lam: float,
 ) -> list[Tube]:
-    """Coarse tubes overlap strongly while fine tubes remain sparse within each coarse tube."""
+    """粗尺度管高度重叠，而每个粗管内部的细管保持稀疏。"""
     group_count = max(3, min(n, round(1.8 * rho ** -2)))
     coarse_dirs = separated_directions(rng, group_count, minimum_angle=max(0.45 * rho, delta * 0.8))
     common_focus = random_point_in_ball(rng, radius=0.08)
@@ -117,7 +117,7 @@ def generate_hairbrush(
     delta: float,
     lam: float,
 ) -> list[Tube]:
-    """A Wolff-hairbrush-like arrangement around one central tube."""
+    """围绕中心管构造类似 Wolff hairbrush 的排列。"""
     stem = normalize(np.array([0.0, 0.0, 1.0]))
     tubes = [Tube(np.zeros(3), stem, delta, 0.0, 1.0, group=0)]
     for i in range(1, n):
